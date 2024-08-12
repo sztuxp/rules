@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "domain_suffix": [
+        "4gtv.tv",
+        "orz-7.com",
+        "hinet.net",
+        "livednow.com",
+        "ofiii.com",
+        "mytvsuper.com",
+        "thetvapp.to",
+        "googleapis.cn",
+        "googleapis.com",
+        "google.com.tw",
+        "google.com.hk",
+        "gstatic.com",
+        "xn--ngstr-lra8j.com"
+      ],
+      "ip_cidr": [
+        "13.112.0.0/14"
+      ]
+    }
+  ]
+}

@@ -11,11 +11,14 @@
         "mytvsuper.com",
         "thetvapp.to",
         "googleapis.cn",
-        "googleapis.com",
+        "googleapis.com",“googleapis.com”，“googleapis.com”，
         "google.com.tw",
         "google.com.hk",
         "gstatic.com",
-        "xn--ngstr-lra8j.com"
+        "xn--ngstr-lra8j.com",
+        "github.com",
+        "github.global.ssl.fastly.net",
+        "assets-cdn.github.com"        
       ],
       "ip_cidr": [
         "13.112.0.0/14"

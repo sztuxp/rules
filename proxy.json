@@ -19,9 +19,6 @@
         "github.com",
         "github.global.ssl.fastly.net",
         "assets-cdn.github.com"
-      ],
-      "ip_cidr": [
-        "13.112.0.0/14"
       ]
     }
   ]

@@ -21,6 +21,8 @@
     ],
     "rules": [
       {"outbound": "any", "server": "localDns", "disable_cache": true},
+      {"rule_set": "geosite-proxy", "server": "proxyDns"},
+      {"rule_set": "geosite-direct", "server": "localDns"},
       {"rule_set": "geosite-cn", "server": "localDns"},
       {"clash_mode": "direct", "server": "localDns"},
       {"clash_mode": "global", "server": "proxyDns"},
@@ -86,6 +88,8 @@
       { "clash_mode": "global", "outbound": "GLOBAL" },
       { "domain": ["clash.razord.top", "yacd.metacubex.one", "yacd.haishan.me", "d.metacubex.one"], "outbound": "🎯 全球直连" },
       { "ip_is_private": true, "outbound": "🎯 全球直连" },
+      { "rule_set": "geosite-proxy", "outbound": "🚀 节点选择" },
+      { "rule_set": "geosite-direct", "outbound": "🎯 全球直连" },
       { "rule_set": "geosite-ai", "outbound": "🤖 AI" },
       { "rule_set": "geosite-youtube", "outbound": "📹 YouTube" },
       { "rule_set": ["geoip-netflix", "geosite-netflix"], "outbound": "🎥 Netflix" },
@@ -107,6 +111,9 @@
       { "tag": "geoip-apple", "type": "remote", "format": "binary", "url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo-lite/geoip/apple.srs", "download_detour": "🎯 全球直连" },
       { "tag": "geosite-apple", "type": "remote", "format": "binary", "url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/apple.srs", "download_detour": "🎯 全球直连" },
       { "tag": "geosite-microsoft", "type": "remote", "format": "binary", "url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/microsoft.srs", "download_detour": "🎯 全球直连" },
+      { "tag": "geosite-proxy", "type": "remote", "format": "source", "url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/sztuxp/sbrules/main/proxy.json", "download_detour": "🎯 全球直连" },
+      { "tag": "geosite-direct", "type": "remote", "format": "source", "url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/sztuxp/sbrules/main/direct.json", "download_detour": "🎯 全球直连" },
+      
       { "tag": "geosite-geolocation-!cn", "type": "remote", "format": "binary", "url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/geolocation-!cn.srs", "download_detour": "🎯 全球直连" },
       { "tag": "geoip-cn", "type": "remote", "format": "binary", "url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/cn.srs", "download_detour": "🎯 全球直连" },
       { "tag": "geosite-cn", "type": "remote", "format": "binary", "url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/cn.srs", "download_detour": "🎯 全球直连" }

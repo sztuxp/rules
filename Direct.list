@@ -2,6 +2,21 @@
 
 # MyList
 # 域名后缀匹配
+DOMAIN-SUFFIX,zaobao.com
+DOMAIN-SUFFIX,ipip.net
+DOMAIN-SUFFIX,dyndns.com
+DOMAIN-SUFFIX,oray.com
+DOMAIN-SUFFIX,3322.net
+DOMAIN-SUFFIX,115.com
+DOMAIN-SUFFIX,dnsany.com
+DOMAIN-SUFFIX,cmvideo.cn
+DOMAIN-SUFFIX,dnsany.com
+DOMAIN-SUFFIX,chinamobile.com
+DOMAIN-SUFFIX,mobaibox.com
+DOMAIN-SUFFIX,gitv.tv
+DOMAIN-SUFFIX,cctv.cn
+DOMAIN-SUFFIX,gcable.cn
+DOMAIN-SUFFIX,ottdns.com
 DOMAIN-SUFFIX,time.windows.com
 DOMAIN-SUFFIX,lanzov.com
 DOMAIN-SUFFIX,hao123.com

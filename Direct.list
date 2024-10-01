@@ -25,6 +25,7 @@ DOMAIN-SUFFIX,dns.msftncsi.com
 DOMAIN-SUFFIX,ipv6.msftconnecttest.com
 
 # 域名关键字匹配
+DOMAIN-KEYWORD,zaobao
 DOMAIN-KEYWORD,dyndns
 DOMAIN-KEYWORD,mirror
 DOMAIN-KEYWORD,ghp

@@ -1,12 +1,12 @@
 # 锚点
-pr: &pr {type: select, proxies: [🚀 节点选择, 🍃 美国均衡, 🍃 韩日均衡, 🔯 美国故转, 🔯 日本故转, ♻️ 韩国自动, ♻️ 美国自动, ♻️ 电信自动,♻️ 自动选择, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🌐 全部节点, ⭕ 自建节点, 🔗 链式代理, 🟢 直连]}
-yt: &yt {type: select, proxies: [🍃 美国均衡, 🍃 韩日均衡, 🚀 节点选择,  🔯 美国故转, 🔯 日本故转, ♻️ 韩国自动, ♻️ 美国自动, ♻️ 电信自动,♻️ 自动选择, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🌐 全部节点, ⭕ 自建节点, 🔗 链式代理, 🟢 直连]}
+pr: &pr {type: select, proxies: [🚀 节点选择, 🍃 美国均衡, 🍃 韩日均衡, 🔯 美国故转,  ♻️ 韩国自动, ♻️ 美国自动, ♻️ 电信自动,♻️ 自动选择, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🌐 全部节点, ⭕ 自建节点,  🟢 直连]}
+yt: &yt {type: select, proxies: [🍃 美国均衡, 🍃 韩日均衡, 🚀 节点选择,  🔯 美国故转,  ♻️ 韩国自动, ♻️ 美国自动, ♻️ 电信自动,♻️ 自动选择, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🌐 全部节点, ⭕ 自建节点, 🟢 直连]}
 
 # 机场订阅，名称不能重复
 proxy-providers:
   Airport_01:
     type: http
-    interval: 1800
+    interval: 28800 #8小时一次
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
@@ -59,7 +59,14 @@ keep-alive-interval: 30
 profile:
   store-selected: true
   store-fake-ip: true
-  
+hosts:
+  cache.ott.ystenlive.itv.cmvideo.cn: feiyangdigital.tg.ystenlive.ottdns.com
+  cache.ott.bestlive.itv.cmvideo.cn: feiyangdigital.tg.bestlive.ottdns.com
+  cache.ott.wasulive.itv.cmvideo.cn: feiyangdigital.tg.wasulive.ottdns.com
+  cache.ott.fifalive.itv.cmvideo.cn: feiyangdigital.tg.fifalive.ottdns.com
+  cache.ott.hnbblive.itv.cmvideo.cn: feiyangdigital.tg.hnbblive.ottdns.com
+  zqhswlive.itv.cmvideo.cn: feiyangdigital.tg.zqhswlive.ottdns.com  
+
 # 流量嗅探
 sniffer:
   enable: true
@@ -83,11 +90,14 @@ tun:
   enable: true
   stack: mixed
   mtu: 9000
+  # dns劫持
   dns-hijack:
     - "any:53"
     - "tcp://any:53"
+  # 自动设置全局路由，可以自动将全局流量路由进入 tun 网卡
   auto-route: true
   auto-redirect: true
+  # 自动选择流量出口接口
   auto-detect-interface: true
   
 # DNS模块
@@ -115,6 +125,8 @@ dns:
     - dyndns.com
     - oray.com
     - 3322.net
+    #GOOGLE TV 对时
+    - aliyun.com
 
   default-nameserver:
     - 223.5.5.5
@@ -147,7 +159,7 @@ proxies:
   
 # 策略组
 proxy-groups:
-  - {name: 🚀 节点选择, type: select, proxies: [♻️ 美国自动, 🔯 美国故转, 🍃 美国均衡, 🍃 韩日均衡, 🔯 日本故转, ♻️ 韩国自动, ♻️ 电信自动,♻️ 自动选择, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🌐 全部节点, ⭕ 自建节点, 🔗 链式代理, 🟢 直连]}
+  - {name: 🚀 节点选择, type: select, proxies: [♻️ 美国自动, 🔯 美国故转, 🍃 美国均衡, 🍃 韩日均衡,  ♻️ 韩国自动, ♻️ 电信自动,♻️ 自动选择, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🌐 全部节点, ⭕ 自建节点, 🟢 直连]}
   - {name: 📹 YouTube, <<: *yt}
   - {name: 🍀 Google, type: select, proxies: [⭕ 自建节点, 🚀 节点选择]}
   - {name: 🤖 ChatGPT, <<: *pr}
@@ -158,18 +170,17 @@ proxy-groups:
   #- {name: 📲 Telegram, <<: *pr}
   #- {name: 🎥 NETFLIX, <<: *pr}
   #- {name: ✈️ Speedtest, <<: *pr}
-  - {name: 💶 PayPal, type: select, proxies: [⭕ 自建节点, 🚀 节点选择]}
+  - {name: 💶 PayPal, type: select, proxies: [⭕ 自建节点]}
   #- {name: 🍎 Apple, type: select, proxies: [🟢 直连, 🚀 节点选择]}
-  - {name: 🔗 链式代理, type: relay, proxies: [🇺🇲 美国节点, ⭕ 自建链式]}
+  #- {name: 🔗 链式代理, type: relay, proxies: [🇺🇲 美国节点, ⭕ 自建链式]}
   - {name: 🎯 全球直连, type: select, proxies: [🟢 直连, 🚀 节点选择]}
-  - {name: 🐟 漏网之鱼, <<: *pr}
+  - {name: 🐟 漏网之鱼, type: select, proxies: [♻️ 美国自动, 🔯 美国故转, ♻️ 韩国自动, ♻️ 电信自动, 🇯🇵 日本节点, ⭕ 自建节点]}
   - {name: ⭕ 自建链式, type: select, include-all: true, filter: "^(ZJ_|Zj_)"}
   - {name: ⭕ 自建节点, type: select, include-all: true, filter: "^(ZJ_|Zj_)"}
   - {name: 🇭🇰 香港节点, type: select, include-all: true, filter: "(?i)港|hk|hongkong|hong kong"}
   - {name: 🇯🇵 日本节点, type: select, include-all: true, filter: "(?i)日|jp|japan"}
   - {name: 🇺🇲 美国节点, type: select, include-all: true, filter: "(?i)美|us|unitedstates|united states"}
-  - {name: 🔯 美国故转, type: fallback, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(美|US|(?i)States|America))^((?!(港|台|日|韩|新)).)*$"}
-  - {name: 🔯 日本故转, type: fallback, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(日|JP|(?i)Japan))^((?!(港|台|韩|新|美)).)*$" }
+  - {name: 🔯 美国故转, type: fallback, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(美|US|(?i)States|America))^((?!(港|台|日|韩|新)).)*$"}  
   - {name: ♻️ 韩国自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)韩|KR"}
   - {name: ♻️ 美国自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(美|US|(?i)States|America))^((?!(港|台|日|韩|新)).)*$"}  
   - {name: ♻️ 电信自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)CT"}  
@@ -178,11 +189,13 @@ proxy-groups:
   - {name: ♻️ 自动选择, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "^((?!(直连)).)*$"}
   - {name: 🌐 全部节点, type: select, include-all: true}
 rules:
+  - DOMAIN-SUFFIX,stream-link.org,♻️ 美国自动
+  - DOMAIN-SUFFIX,stream-link.online,♻️ 美国自动
   - RULE-SET,private_domain,🟢 直连
   #- RULE-SET,direct0,🟢 直连 
   - RULE-SET,direct1,🟢 直连
   #- RULE-SET,apple_domain,🍎 Apple
-  - RULE-SET,free,🔗 链式代理
+  #- RULE-SET,free,🔗 链式代理
   - RULE-SET,proxylite,🚀 节点选择   
   - RULE-SET,ai,🤖 ChatGPT
   - RULE-SET,github_domain,👨🏿‍💻 GitHub
@@ -201,7 +214,7 @@ rules:
   #- RULE-SET,netflix_ip,🎥 NETFLIX,no-resolve
   #- RULE-SET,telegram_ip,📲 Telegram,no-resolve
   - RULE-SET,cn_ip,🎯 全球直连
-  - MATCH,🚀 节点选择
+  - MATCH,🐟 漏网之鱼
 rule-anchor:
   ip: &ip {type: http, interval: 86400, behavior: ipcidr, format: mrs}
   domain: &domain {type: http, interval: 86400, behavior: domain, format: mrs}

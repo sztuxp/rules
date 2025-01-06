@@ -6,7 +6,7 @@ yt: &yt {type: select, proxies: [🍃 美国均衡, 🚀 节点选择,  ♻️ �
 proxy-providers:
   Airport_01:
     type: http
-    interval: 86400 #8小时一次
+    interval: 28800 #8小时一次
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204

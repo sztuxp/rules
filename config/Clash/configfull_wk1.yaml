@@ -223,8 +223,10 @@ rule-anchor:
 rule-providers: 
   private_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs" }
   #direct0: { <<: *zdy, url: "https://raw.githubusercontent.com/sztuxp/rules/master/Direct0.list" }
-  direct1: { <<: *class, url: "https://raw.githubusercontent.com/sztuxp/rules/main/config/Clash/Direct1.mrs" }
-  proxylite: { <<: *zdy, url: "https://raw.githubusercontent.com/sztuxp/rules/main/config/Clash/ProxyLite.mrs" }
+  direct1: { <<:  *domain, url: "https://raw.githubusercontent.com/sztuxp/rules/main/config/Clash/Direct1.mrs" }
+  proxylite: { <<: *domain, url: "https://raw.githubusercontent.com/sztuxp/rules/main/config/Clash/ProxyLite.mrs" }  
+  #direct1: { <<: *class, url: "https://raw.githubusercontent.com/sztuxp/rules/main/config/Clash/Direct1.mrs" }
+  #proxylite: { <<: *zdy, url: "https://raw.githubusercontent.com/sztuxp/rules/main/config/Clash/ProxyLite.mrs" }
   #direct1: { <<: *class, url: "https://raw.githubusercontent.com/sztuxp/rules/master/Direct1.list" }
   #proxylite: { <<: *zdy, url: "https://raw.githubusercontent.com/sztuxp/rules/master/ProxyLite.list" }
   #free: { <<: *zdy, url: "https://raw.githubusercontent.com/sztuxp/rules/master/Free.list" }  

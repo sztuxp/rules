@@ -165,9 +165,9 @@ proxies:
 proxy-groups:
   - {name: 🚀 节点选择, type: select, proxies: [♻️ 美国自动, 🍃 美国均衡,  ♻️ 亚太自动, ♻️ 其他自动,♻️ 自动选择, 亚太节点, 🇺🇲 美国节点, 🌐 全部节点, ⭕ 自建节点, 🟢 直连]}
   - {name: 📹 YouTube, <<: *yt}
-  - {name: 🍀 Google, type: select, proxies: [⭕ 自建节点, 🚀 节点选择]}
+  - {name: 🍀 Google, type: select, proxies: [🚀 节点选择, ⭕ 自建节点]}
   - {name: 🤖 ChatGPT, <<: *pr}
-  - {name: 👨🏿‍💻 GitHub, type: select, proxies: [⭕ 自建节点, 🚀 节点选择]}
+  - {name: 👨🏿‍💻 GitHub, type: select, proxies: [🚀 节点选择, ⭕ 自建节点]}
   #- {name: 🐬 OneDrive, <<: *pr}
   #- {name: 🪟 Microsoft, <<: *pr}
   - {name: 🎵 TikTok, <<: *pr}
@@ -176,21 +176,21 @@ proxy-groups:
   - {name: 💶 PayPal, type: select, proxies: [⭕ 自建节点]}  
   #- {name: 🔗 链式代理, type: relay, proxies: [🇺🇲 美国节点, ⭕ 自建链式]}
   - {name: 🎯 全球直连, type: select, proxies: [🟢 直连, 🚀 节点选择]}
-  - {name: 🐟 漏网之鱼, type: select, proxies: [⭕ 自建节点,♻️ 美国自动, ♻️ 亚太自动, ♻️ 其他自动, 亚太节点]}
-  #- {name: ⭕ 自建链式, type: select, include-all: true, filter: "^(ZJ_|Zj_)"}
-  - {name: ⭕ 自建节点, type: select, include-all: true, filter: "^(ZJ_|Zj_)"}  
-  - {name: 亚太节点, type: select, include-all: true, filter: "(?i)(HK|SG|JP|KR|TW)"}
-  - {name: 🇺🇲 美国节点, type: select, include-all: true, filter: "(?i)(US)"}
+  - {name: 🐟 漏网之鱼, type: select, proxies: [🚀 节点选择,⭕ 自建节点, ♻️ 美国自动, ♻️ 亚太自动, ♻️ 其他自动, 亚太节点]}
+  #- {name: ⭕ 自建链式, type: select, include-all: true, filter: "^(ZJ)"}
+  - {name: ⭕ 自建节点, type: select, include-all: true, filter: "^(ZJ)"}  
+  - {name: 亚太节点, type: select, include-all: true, filter: "(?i)(HK|SG|JP|KR|TW|ZJ2)"}
+  - {name: 🇺🇲 美国节点, type: select, include-all: true, filter: "(?i)(US|ZJ1)"}
   #- {name: 🔯 美国故转, type: fallback, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(美|US|(?i)States|America))^((?!(港|台|日|韩|新)).)*$"}  
-  - {name: ♻️ 亚太自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(HK|SG|JP|KR|TW)"}
-  - {name: ♻️ 美国自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(US)"}
+  - {name: ♻️ 亚太自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(HK|SG|JP|KR|TW|ZJ2)"}
+  - {name: ♻️ 美国自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(US|ZJ1)"}
   - {name: ♻️ 其他自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "^((?!(HK|US|JP|KR|ZJ|SG|TW|直连)).)*$"}     
-  - {name: 🍃 美国均衡, type: load-balance, include-all: true, interval: 300, strategy: round-robin, filter: "(?i)(US)"}  
+  - {name: 🍃 美国均衡, type: load-balance, include-all: true, interval: 300, strategy: round-robin, filter: "(?i)(US|ZJ1)"}  
   - {name: ♻️ 自动选择, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "^((?!(直连)).)*$"}
   - {name: 🌐 全部节点, type: select, include-all: true}
 rules:
-  - DOMAIN-SUFFIX,stream-link.org,⭕ 自建节点
-  - DOMAIN-SUFFIX,stream-link.online,⭕ 自建节点
+  #- DOMAIN-SUFFIX,stream-link.org,⭕ 自建节点
+  #- DOMAIN-SUFFIX,stream-link.online,⭕ 自建节点
   - RULE-SET,private_domain,🟢 直连
   #- RULE-SET,direct0,🟢 直连 
   - RULE-SET,direct1,🟢 直连

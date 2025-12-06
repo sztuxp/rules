@@ -1,5 +1,5 @@
 # 锚点
-#yt: &yt {type: select, proxies: [🔮 美国均衡,🚁 油管节点, 🔯 美国故转, ♻️ 美国自动, 🥥 亚太节点]}
+yt: &yt {type: select, proxies: [🔮 美国均衡,🚁 油管节点, 🔯 美国故转, ♻️ 美国自动, 🥥 亚太节点]}
 zj: &zj {type: select, include-all: true, filter: "(?i)(xxxx1)"}
 filterUs: &filterUs {include-all: true, filter: "(?i)(xxxx2)"}
 filterZJ: &filterZJ {include-all: true, filter: "^(?i)(xxxx3)"}

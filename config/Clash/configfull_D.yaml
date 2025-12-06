@@ -52,7 +52,7 @@ external-ui: ui
 external-ui-url: "https://ghfast.top/https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip"
 
 # 匹配进程 always/strict/off
-find-process-mode: strict
+find-process-mode: off
 global-client-fingerprint: chrome
 keep-alive-idle: 600
 keep-alive-interval: 30
@@ -186,26 +186,6 @@ rules:
   - AND,((AND,(DST-PORT,443),(NETWORK,UDP))),REJECT
   - DOMAIN-SUFFIX,googleapis.cn,🟢 直连
   - DOMAIN-SUFFIX,xn--ngstr-lra8j.com,🟢 直连  
-  #mobi  
-  - PROCESS-NAME,app.revanced.android.gms,📹 YouTube
-  - PROCESS-NAME,app.rvx.android.youtube,📹 YouTube
-  - PROCESS-NAME-REGEX,(?i)google,🇬 谷歌服务 
-  - PROCESS-NAME-REGEX,.*downloads,🇬 谷歌服务
-  - PROCESS-NAME-REGEX,(?i)Telegram,📲 Telegram
-  - PROCESS-NAME-REGEX,(?i)microsoft,🪟 Microsoft  
-  #IPTV mobi router
-  - DOMAIN-SUFFIX, iill.top,🎦 TvProxy
-  - DOMAIN-SUFFIX, ttvb.eu.org,🎦 TvProxy
-  - DOMAIN-SUFFIX, 946985.qzz.io,🎦 TvProxy
-  - DOMAIN-SUFFIX, 946985.eu.org,🎦 TvProxy
-  - DOMAIN-SUFFIX, vvvv.ee,🎦 TvProxy
-  - DOMAIN-SUFFIX,130519.xyz,🟢 直连
-  - DOMAIN-SUFFIX,4666888.xyz,🟢 直连
-  - DOMAIN-SUFFIX,946985.filegear-sg.me,🟢 直连
-  - DOMAIN-KEYWORD,946985,🟢 直连
-  - DOMAIN-SUFFIX,3116598.xyz,🟢 直连
-  - DOMAIN-SUFFIX,188766.xyz,🟢 直连
-  - DOMAIN-SUFFIX,3a.ink,🟢 直连
   #pc，router
   - DOMAIN-KEYWORD, kxxx1,🕺 PrProxy
   - DOMAIN-KEYWORD, kxxx2,🕺 PrProxy

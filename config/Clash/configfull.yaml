@@ -1,9 +1,9 @@
 # 锚点
 #yt: &yt {type: select, proxies: [🔮 美国均衡,🚁 油管节点, 🔯 美国故转, ♻️ 美国自动, 🥥 亚太节点]}
-#zj: &zj {type: select, include-all: true, filter: "(?i)(xx)"}
-#filterUs: &filterUs {include-all: true, filter: "(?i)xx)"}
-#filterZJ: &filterZJ {include-all: true, filter: "^(?i)(xxx)"}
-#filterAs: &filterAs {include-all: true, filter: "(?i)(xxx)"}
+zj: &zj {type: select, include-all: true, filter: "(?i)(xxxx1)"}
+filterUs: &filterUs {include-all: true, filter: "(?i)(xxxx2)"}
+filterZJ: &filterZJ {include-all: true, filter: "^(?i)(xxxx3)"}
+filterAs: &filterAs {include-all: true, filter: "(?i)(xxxx4)"}
 
 # 订阅，名称不能重复
 proxy-providers:

@@ -117,7 +117,6 @@ dns:
     - RULE-SET:private_domain    
     - RULE-SET:cn_domain
     - RULE-SET:connectivity-check
-    #- RULE-SET:google_domain
     #DDNS
     - RULE-SET:mdirect
     #GOOGLE TV 对时
@@ -130,10 +129,7 @@ dns:
   nameserver-policy:    
     "RULE-SET:cn_domain,private_domain,mdirect,connectivity-check":
       - https://doh.pub/dns-query
-      - https://dns.alidns.com/dns-query  
-    #"RULE-SET:googlestore_domain,google_domain":
-    #  - https://cloudflare-dns.com/dns-query
-    #  - https://dns.google/dns-query        
+      - https://dns.alidns.com/dns-query     
   #默认的域名解析服务器
   nameserver:
     - https://cloudflare-dns.com/dns-query
@@ -188,18 +184,15 @@ rules:
   #- AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((RULE-SET,cn_domain))),REJECT  
   #禁用所有UDP流量
   - AND,((AND,(DST-PORT,443),(NETWORK,UDP))),REJECT
-  #- RULE-SET,cn_ip,🎯 全球直连,no-resolve
   - DOMAIN-SUFFIX,googleapis.cn,🟢 直连
-  - DOMAIN-SUFFIX,xn--ngstr-lra8j.com,🟢 直连
-  
-  #手机进程  
+  - DOMAIN-SUFFIX,xn--ngstr-lra8j.com,🟢 直连  
+  #mobi  
   - PROCESS-NAME,app.revanced.android.gms,📹 YouTube
   - PROCESS-NAME,app.rvx.android.youtube,📹 YouTube
   - PROCESS-NAME-REGEX,(?i)google,🇬 谷歌服务 
   - PROCESS-NAME-REGEX,.*downloads,🇬 谷歌服务
   - PROCESS-NAME-REGEX,(?i)Telegram,📲 Telegram
   - PROCESS-NAME-REGEX,(?i)microsoft,🪟 Microsoft  
-  #IPTV
   #IPTV
   - DOMAIN-SUFFIX, iill.top,🎦 TvProxy
   - DOMAIN-SUFFIX, ttvb.eu.org,🎦 TvProxy

@@ -193,7 +193,7 @@ rules:
   - PROCESS-NAME-REGEX,.*downloads,🇬 谷歌服务
   - PROCESS-NAME-REGEX,(?i)Telegram,📲 Telegram
   - PROCESS-NAME-REGEX,(?i)microsoft,🪟 Microsoft  
-  #IPTV
+  #IPTV mobi router
   - DOMAIN-SUFFIX, iill.top,🎦 TvProxy
   - DOMAIN-SUFFIX, ttvb.eu.org,🎦 TvProxy
   - DOMAIN-SUFFIX, 946985.qzz.io,🎦 TvProxy
@@ -218,26 +218,22 @@ rules:
   #google store
   - RULE-SET,googlestore_domain,🇬 谷歌服务
   #广告
-  #- RULE-SET,ads_domain,REJECT
-  
-  - RULE-SET,private_domain,🟢 直连  
+  #- RULE-SET,ads_domain,REJECT  
+  - RULE-SET,private_domain,🟢 直连 
   - RULE-SET,mdirect,🟢 直连
-
   - RULE-SET,connectivity-check,🟢 直连
+  
   - RULE-SET,ai,🤖 Ai_!cn
   - RULE-SET,github_domain,👨🏿‍💻 GitHub
-  - RULE-SET,youtube_domain,📹 YouTube
-  
+  - RULE-SET,youtube_domain,📹 YouTube  
   - RULE-SET,google_domain,🇬 谷歌服务
   - DOMAIN,www.microsoft.com,🟢 直连  
   - RULE-SET,onedrive_domain,🪟 Microsoft 
   - RULE-SET,microsoft_domain,🪟 Microsoft
   - RULE-SET,microsoftcn_domain,🟢 直连
-
   - DOMAIN,www.apple.com,🟢 直连 
   - RULE-SET,apple_domain,🍎 Apple
   - RULE-SET,applecn_domain,🟢 直连
-
   - RULE-SET,tiktok_domain,🎵 TikTok
   - RULE-SET,speedtest_domain,✈️ Speedtest
   - RULE-SET,twitter_domain,🧋 Twitter

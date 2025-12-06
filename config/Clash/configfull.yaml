@@ -188,10 +188,48 @@ rules:
   #- AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((RULE-SET,cn_domain))),REJECT  
   #禁用所有UDP流量
   - AND,((AND,(DST-PORT,443),(NETWORK,UDP))),REJECT
-
+  #- RULE-SET,cn_ip,🎯 全球直连,no-resolve
   - DOMAIN-SUFFIX,googleapis.cn,🟢 直连
   - DOMAIN-SUFFIX,xn--ngstr-lra8j.com,🟢 直连
   
+  #手机进程  
+  - PROCESS-NAME,app.revanced.android.gms,📹 YouTube
+  - PROCESS-NAME,app.rvx.android.youtube,📹 YouTube
+  - PROCESS-NAME-REGEX,(?i)google,🇬 谷歌服务 
+  - PROCESS-NAME-REGEX,.*downloads,🇬 谷歌服务
+  - PROCESS-NAME-REGEX,(?i)Telegram,📲 Telegram
+  - PROCESS-NAME-REGEX,(?i)microsoft,🪟 Microsoft  
+  #IPTV
+  #IPTV
+  - DOMAIN-SUFFIX, iill.top,🎦 TvProxy
+  - DOMAIN-SUFFIX, ttvb.eu.org,🎦 TvProxy
+  - DOMAIN-SUFFIX, 946985.qzz.io,🎦 TvProxy
+  - DOMAIN-SUFFIX, 946985.eu.org,🎦 TvProxy
+  - DOMAIN-SUFFIX, vvvv.ee,🎦 TvProxy
+  - DOMAIN-SUFFIX,130519.xyz,🟢 直连
+  - DOMAIN-SUFFIX,4666888.xyz,🟢 直连
+  - DOMAIN-SUFFIX,946985.filegear-sg.me,🟢 直连
+  - DOMAIN-KEYWORD,946985,🟢 直连
+  - DOMAIN-SUFFIX,3116598.xyz,🟢 直连
+  - DOMAIN-SUFFIX,188766.xyz,🟢 直连
+  - DOMAIN-SUFFIX,3a.ink,🟢 直连
+  #pc，router
+  - DOMAIN-KEYWORD, kxxx1,🕺 PrProxy
+  - DOMAIN-KEYWORD, kxxx2,🕺 PrProxy
+  - DOMAIN-KEYWORD, kxxx3,🕺 PrProxy
+  - DOMAIN-KEYWORD, kxxx4,🕺 PrProxy
+  - DOMAIN-KEYWORD, kxxx5,🕺 PrProxy
+  - DOMAIN-KEYWORD, kxxx6,🕺 PrProxy
+  - DOMAIN-KEYWORD, kxxx7,🕺 PrProxy
+  - DST-PORT,kxxx8,🕺 PrProxy
+  #google store
+  - RULE-SET,googlestore_domain,🇬 谷歌服务
+  #广告
+  #- RULE-SET,ads_domain,REJECT
+  
+  - RULE-SET,private_domain,🟢 直连  
+  - RULE-SET,mdirect,🟢 直连
+
   - RULE-SET,connectivity-check,🟢 直连
   - RULE-SET,ai,🤖 Ai_!cn
   - RULE-SET,github_domain,👨🏿‍💻 GitHub

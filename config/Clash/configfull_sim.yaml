@@ -163,7 +163,7 @@ proxy-groups:
   #- {name: 🤖 Ai_!cn, <<: *all0}
   - {name: 🕺 PrProxy, <<: *all0}
   - {name: ✈️ Speedtest, <<: *all0}
-  - {name: 🎦 TvProxy, <<: *all0}
+  - {name: 🎦 TvProxy, type: select, proxies: [🔯 节点故转,🚁 节点手动, ♻️ 节点自动,🕺 PrProxy,🇬 谷歌服务]}
   - {name: 🌈 海外网站, type: select, proxies: [🔯 节点故转,🚁 节点手动, ♻️ 节点自动,🕺 PrProxy,🇬 谷歌服务]}    
   - {name: 🚁 节点手动, <<: *all0}
   

@@ -1,6 +1,7 @@
 # 锚点
 #全部代理节点
 all0: &all0 {type: select, include-all: true, filter: "^((?!(直连)).)*$"}
+fallbk: &fallbk {include-all: true, filter: "^((?!(直连)).)*$"}
 #全部节点
 all1: &all1 {type: select, include-all: true}
 # 机场订阅，名称不能重复
@@ -17,7 +18,7 @@ proxy-providers:
       #url: https://www.gstatic.com/generate_204
       interval: 300
     proxy: 🟢 直连
-    url: https://xxxxx
+    url: https://xxx.com
  
 # 用于下载订阅时指定UA
 global-ua:
@@ -43,16 +44,17 @@ geodata-loader: standard
 geo-auto-update: true
 geo-update-interval: 48
 geox-url:
-  geosite: "https://ghfast.top/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat"
-  mmdb: "https://ghfast.top/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.metadb"
-  geoip: "https://ghfast.top/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat"
-  asn: "https://ghfast.top/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/GeoLite2-ASN.mmdb"
+  geosite: "https://gh.618222.xyz/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat"
+  mmdb: "https://gh.618222.xyz/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.metadb"
+  geoip: "https://gh.618222.xyz/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat"
+  asn: "https://gh.618222.xyz/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/GeoLite2-ASN.mmdb"
   
 # 控制面板
 external-controller: 0.0.0.0:9090
 secret: "123123"
 external-ui: ui
-external-ui-url: "https://ghfast.top/https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip"
+external-ui-url: "https://gh.618222.xyz/https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip"
+# 下载面板地址可更换：https://mirror.ghproxy.com/https://github.com/MetaCubeX/Yacd-meta/archive/gh-pages.zip
 
 # 匹配进程 always/strict/off
 find-process-mode: off
@@ -155,22 +157,22 @@ proxies:
 # 策略组
 proxy-groups:
   - {name: 🚀 节点选择, type: select, proxies: [🚁 节点手动, ♻️ 节点自动, 🔯 节点故转,🌐 全部节点]}  
-  - {name: 📹 YouTube, type: select, proxies: [🚁 节点手动, ♻️ 节点自动, 🔮 节点均衡,🔯 节点故转]}
+  - {name: 📹 YouTube, type: select, proxies: [🔯 节点故转, 🚁 节点手动, ♻️ 节点自动,🔮 节点均衡]}
   - {name: 🇬 谷歌服务, <<: *all0}
-  - {name: 🤖 Ai_!cn, <<: *all0}
+  #- {name: 🤖 Ai_!cn, <<: *all0}
   - {name: 🕺 PrProxy, <<: *all0}
   - {name: ✈️ Speedtest, <<: *all0}
   - {name: 🎦 TvProxy, <<: *all0}
-  - {name: 🌈 海外网站, <<: *all0}    
+  - {name: 🌈 海外网站, type: select, proxies: [🔯 节点故转,🚁 节点手动, ♻️ 节点自动,🕺 PrProxy,🇬 谷歌服务]}    
   - {name: 🚁 节点手动, <<: *all0}
   
   - {name: 🎯 全球直连, <<: *all1}
   - {name: 🐟 漏网之鱼, type: select, proxies: [🚁 节点手动, ♻️ 节点自动, 🔯 节点故转, 🟢 直连]}  
 
-  - {name: 🔯 节点故转, type: fallback,tolerance: 20, interval: 300, <<: *all0}  
-  - {name: ♻️ 节点自动, type: url-test,tolerance: 20, interval: 300, <<: *all0}     
-  - {name: 🔮 节点均衡, type: load-balance, interval: 300, strategy: round-robin, <<: *all0}  
-  - {name: 🌐 全部节点, type: select, include-all: true}
+  - {name: 🔯 节点故转, type: fallback,tolerance: 20, interval: 300, <<: *fallbk}  
+  - {name: ♻️ 节点自动, type: url-test,tolerance: 20, interval: 300, <<: *fallbk}     
+  - {name: 🔮 节点均衡, type: load-balance, interval: 300, strategy: round-robin, <<: *fallbk}  
+  - {name: 🌐 全部节点, <<: *all1}
 rules:
   # 若需禁用 QUIC 请取消注释 QUIC 两条规则
   # 防止 YouTube 等使用 QUIC 导致速度不佳, 禁用 443 端口 UDP 流量（不包括国内）
@@ -178,25 +180,34 @@ rules:
   #- AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((RULE-SET,cn_domain))),REJECT  
   #禁用所有UDP流量
   - AND,((AND,(DST-PORT,443),(NETWORK,UDP))),REJECT  
+  - DOMAIN-SUFFIX,googleapis.cn,🟢 直连
+  - DOMAIN-SUFFIX,xn--ngstr-lra8j.com,🟢 直连
   #IPTV
-  - DOMAIN-SUFFIX, iill.top,🕺 PrProxy
-  - DOMAIN-SUFFIX, vvvv.ee,🕺 PrProxy
-  - DOMAIN-SUFFIX, 946985.qzz.io,🕺 PrProxy
-  - DOMAIN-SUFFIX, 946985.eu.org,🕺 PrProxy
+  - DOMAIN-SUFFIX, iill.top,🎦 TvProxy
+  - DOMAIN-SUFFIX, ttvb.eu.org,🎦 TvProxy
+  - DOMAIN-SUFFIX, 946985.qzz.io,🎦 TvProxy
+  - DOMAIN-SUFFIX, 946985.eu.org,🎦 TvProxy
   
   - RULE-SET,private_domain,🟢 直连  
   - RULE-SET,mdirect,🟢 直连
+  - RULE-SET,connectivity-check,🟢 直连
 
   - RULE-SET,youtube_domain,📹 YouTube
+  - RULE-SET,ai,🇬 谷歌服务
+  - RULE-SET,google_domain,🇬 谷歌服务
   - RULE-SET,geolocation-!cn,🕺 PrProxy
-  - RULE-SET,google_ip,🕺 PrProxy,no-resolve
+
   - RULE-SET,cn_domain,🎯 全球直连  
   - RULE-SET,cloudflare_ip,🎯 全球直连,no-resolve
-
+  #IP匹配
+  
+  - RULE-SET,google_ip,🇬 谷歌服务,no-resolve
   - RULE-SET,twitter_ip,🕺 PrProxy,no-resolve
   - RULE-SET,telegram_ip,🕺 PrProxy,no-resolve
+  - RULE-SET,private_ip,🎯 全球直连,no-resolve
+  - RULE-SET,cloudflare_ip,🎯 全球直连,no-resolve
   - RULE-SET,cn_ip,🎯 全球直连
-  - RULE-SET,private_ip,🎯 全球直连
+  
   - MATCH,🐟 漏网之鱼
 rule-anchor:
   ip: &ip {type: http, interval: 86400, behavior: ipcidr, format: mrs}
@@ -205,36 +216,36 @@ rule-anchor:
   zdy: &zdy {type: http, interval: 86400, behavior: domain, format: text}
   class: &class {type: http, interval: 86400, behavior: classical, format: text}
 rule-providers: 
-  private_domain: { <<: *domain, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs" }  
-  mdirect: { <<:  *domain, url: "https://ghfast.top/raw.githubusercontent.com/sztuxp/rules/main/config/Clash/mdirect.mrs" }  
-  googlestore_domain: { <<: *domain, url: "https://ghfast.top/raw.githubusercontent.com/sztuxp/rules/main/config/Clash/googlestore.mrs" }
-  connectivity-check: { <<: *domain, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/connectivity-check.mrs" }
+  private_domain: { <<: *domain, url: "https://gh.618222.xyz/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs" }  
+  mdirect: { <<:  *domain, url: "https://gh.618222.xyz/raw.githubusercontent.com/sztuxp/rules/main/config/Clash/mdirect.mrs" }  
+  googlestore_domain: { <<: *domain, url: "https://gh.618222.xyz/raw.githubusercontent.com/sztuxp/rules/main/config/Clash/googlestore.mrs" }
+  connectivity-check: { <<: *domain, url: "https://gh.618222.xyz/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/connectivity-check.mrs" }
   #秋风去广告
-  ads_domain: { <<: *domain, url: "https://ghfast.top/raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Clash.mrs"} 
-  ai: { <<: *domain, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ai-chat-!cn.mrs" }  
-  youtube_domain: { <<: *domain, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs" }
-  google_domain: { <<: *domain, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.mrs" }
-  github_domain: { <<: *domain, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs" }
-  twitter_domain: { <<: *domain, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/twitter.mrs" }
-  telegram_domain: { <<: *domain, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.mrs" }
-  netflix_domain: { <<: *domain, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/netflix.mrs" }
-  paypal_domain: { <<: *domain, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/paypal.mrs" }
-  onedrive_domain: { <<: *domain, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/onedrive.mrs" }
-  microsoft_domain: { <<: *domain, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/microsoft.mrs" }
-  microsoftcn_domain: { <<: *domain, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/microsoft@cn.mrs" }
-  applecn_domain: { <<: *domain, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple-cn.mrs" }
-  apple_domain: { <<: *domain, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple.mrs" }
-  speedtest_domain: { <<: *domain, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/ookla-speedtest.mrs" }
-  tiktok_domain: { <<: *domain, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tiktok.mrs" }
+  ads_domain: { <<: *domain, url: "https://gh.618222.xyz/raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Clash.mrs"} 
+  ai: { <<: *domain, url: "https://gh.618222.xyz/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ai-chat-!cn.mrs" }  
+  youtube_domain: { <<: *domain, url: "https://gh.618222.xyz/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs" }
+  google_domain: { <<: *domain, url: "https://gh.618222.xyz/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.mrs" }
+  github_domain: { <<: *domain, url: "https://gh.618222.xyz/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs" }
+  twitter_domain: { <<: *domain, url: "https://gh.618222.xyz/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/twitter.mrs" }
+  telegram_domain: { <<: *domain, url: "https://gh.618222.xyz/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.mrs" }
+  netflix_domain: { <<: *domain, url: "https://gh.618222.xyz/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/netflix.mrs" }
+  paypal_domain: { <<: *domain, url: "https://gh.618222.xyz/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/paypal.mrs" }
+  onedrive_domain: { <<: *domain, url: "https://gh.618222.xyz/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/onedrive.mrs" }
+  microsoft_domain: { <<: *domain, url: "https://gh.618222.xyz/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/microsoft.mrs" }
+  microsoftcn_domain: { <<: *domain, url: "https://gh.618222.xyz/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/microsoft@cn.mrs" }
+  applecn_domain: { <<: *domain, url: "https://gh.618222.xyz/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple-cn.mrs" }
+  apple_domain: { <<: *domain, url: "https://gh.618222.xyz/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple.mrs" }
+  speedtest_domain: { <<: *domain, url: "https://gh.618222.xyz/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/ookla-speedtest.mrs" }
+  tiktok_domain: { <<: *domain, url: "https://gh.618222.xyz/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tiktok.mrs" }
 
-  geolocation-!cn: { <<: *domain, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs" }
-  cn_domain: { <<: *domain, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs" }  
-  private_ip: { <<: *ip, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.mrs" }
-  cn_ip: { <<: *ip, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs" }
-  google_ip: { <<: *ip, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/google.mrs" }
-  cloudflare_ip: { <<: *ip, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cloudflare.mrs" }
-  twitter_ip: { <<: *ip, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/twitter.mrs" }
-  telegram_ip: { <<: *ip, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs" }
-  apple_ip: { <<: *ip, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geoip/apple.mrs" }
-  #facebook_ip: { <<: *ip, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/facebook.mrs" }
-  netflix_ip: { <<: *ip, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/netflix.mrs" }
+  geolocation-!cn: { <<: *domain, url: "https://gh.618222.xyz/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs" }
+  cn_domain: { <<: *domain, url: "https://gh.618222.xyz/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs" }  
+  private_ip: { <<: *ip, url: "https://gh.618222.xyz/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.mrs" }
+  cn_ip: { <<: *ip, url: "https://gh.618222.xyz/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs" }
+  google_ip: { <<: *ip, url: "https://gh.618222.xyz/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/google.mrs" }
+  cloudflare_ip: { <<: *ip, url: "https://gh.618222.xyz/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cloudflare.mrs" }
+  twitter_ip: { <<: *ip, url: "https://gh.618222.xyz/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/twitter.mrs" }
+  telegram_ip: { <<: *ip, url: "https://gh.618222.xyz/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs" }
+  apple_ip: { <<: *ip, url: "https://gh.618222.xyz/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geoip/apple.mrs" }
+  #facebook_ip: { <<: *ip, url: "https://gh.618222.xyz/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/facebook.mrs" }
+  netflix_ip: { <<: *ip, url: "https://gh.618222.xyz/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/netflix.mrs" }

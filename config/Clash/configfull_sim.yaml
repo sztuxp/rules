@@ -18,7 +18,7 @@ proxy-providers:
       #url: https://www.gstatic.com/generate_204
       interval: 300
     proxy: 🟢 直连
-    url: https://xxx.com
+    url: https://xxxx.com
 
  
 # 用于下载订阅时指定UA

@@ -19,7 +19,7 @@ proxy-providers:
       #url: https://www.gstatic.com/generate_204
       interval: 300
     proxy: 🟢 直连
-    url: https://xxxx.com  
+    url: https://xxxx  
 # 用于下载订阅时指定UA
 global-ua:
     
@@ -168,7 +168,6 @@ proxy-groups:
   - {name: 🧋 Twitter, <<: *zj}
   - {name: 🕺 PrProxy, <<: *zj}
   - {name: ✈️ Speedtest, <<: *zj}
-  - {name: 🎦 TvProxy, <<: *zj}
   - {name: 🎥 NETFLIX, <<: *zj}  
   - {name: 💶 PayPal, <<: *zj}
   - {name: 🌈 海外网站, <<: *zj}    
@@ -191,25 +190,15 @@ rules:
   - AND,((AND,(DST-PORT,443),(NETWORK,UDP))),REJECT
   - DOMAIN-SUFFIX,googleapis.cn,🟢 直连
   - DOMAIN-SUFFIX,xn--ngstr-lra8j.com,🟢 直连  
+  - RULE-SET,mdirect,🟢 直连
+  - RULE-SET,mproxy,🕺 PrProxy
   #mobi  
   #mm#- PROCESS-NAME,app.revanced.android.gms,📹 YouTube
   #mm#- PROCESS-NAME,app.rvx.android.youtube,📹 YouTube
   #mm#- PROCESS-NAME-REGEX,(?i)google,🇬 谷歌服务 
   #mm#- PROCESS-NAME-REGEX,.*downloads,🇬 谷歌服务
   #mm#- PROCESS-NAME-REGEX,(?i)Telegram,📲 Telegram
-  #mm#- PROCESS-NAME-REGEX,(?i)microsoft,🪟 Microsoft  
-  #IPTV mobi router
-  #mr#- DOMAIN-SUFFIX, iill.top,🎦 TvProxy
-  #mr#- DOMAIN-SUFFIX, ttvb.eu.org,🎦 TvProxy
-  #mr#- DOMAIN-SUFFIX, 946985.qzz.io,🎦 TvProxy
-  #mr#- DOMAIN-SUFFIX, 946985.eu.org,🎦 TvProxy
-  #mr#- DOMAIN-SUFFIX, vvvv.ee,🎦 TvProxy
-  #mr#- DOMAIN-SUFFIX,filegear-sg.me,🎦 TvProxy
-  #mr#- DOMAIN-SUFFIX,130519.xyz,🟢 直连
-  #mr#- DOMAIN-SUFFIX,4666888.xyz,🟢 直连 
-  #mr#- DOMAIN-SUFFIX,3116598.xyz,🟢 直连
-  #mr#- DOMAIN-SUFFIX,188766.xyz,🟢 直连
-  #mr#- DOMAIN-SUFFIX,3a.ink,🟢 直连
+  #mm#- PROCESS-NAME-REGEX,(?i)microsoft,🪟 Microsoft    
   #pc，router
   #pr#- DOMAIN-KEYWORD, kxxx1,🕺 PrProxy
   #pr#- DOMAIN-KEYWORD, kxxx2,🕺 PrProxy
@@ -219,17 +208,18 @@ rules:
   #pr#- DOMAIN-KEYWORD, kxxx6,🕺 PrProxy
   #pr#- DOMAIN-KEYWORD, kxxx7,🕺 PrProxy
   #pr#- DST-PORT,kxxx8,🕺 PrProxy
-  #google store
-  - RULE-SET,googlestore_domain,🇬 谷歌服务
+
   #广告
-  #- RULE-SET,ads_domain,REJECT  
-  - RULE-SET,private_domain,🟢 直连 
-  - RULE-SET,mdirect,🟢 直连
-  - RULE-SET,connectivity-check,🟢 直连
+  #- RULE-SET,ads_domain,REJECT
   
+  - RULE-SET,private_domain,🟢 直连  
+  - RULE-SET,connectivity-check,🟢 直连
+
   - RULE-SET,ai,🤖 Ai_!cn
   - RULE-SET,github_domain,👨🏿‍💻 GitHub
-  - RULE-SET,youtube_domain,📹 YouTube  
+  - RULE-SET,youtube_domain,📹 YouTube
+  #google store
+  - RULE-SET,googlestore_domain,🇬 谷歌服务
   - RULE-SET,google_domain,🇬 谷歌服务
   - DOMAIN,www.microsoft.com,🟢 直连  
   - RULE-SET,onedrive_domain,🪟 Microsoft 
@@ -260,12 +250,13 @@ rules:
 rule-anchor:
   ip: &ip {type: http, interval: 86400, behavior: ipcidr, format: mrs}
   domain: &domain {type: http, interval: 86400, behavior: domain, format: mrs}
-  adsdomain: &domain {type: http, interval: 7200, behavior: domain, format: mrs}
+  qdomain: &qdomain {type: http, interval: 3600, behavior: domain, format: mrs}
   zdy: &zdy {type: http, interval: 86400, behavior: domain, format: text}
   class: &class {type: http, interval: 86400, behavior: classical, format: text}
 rule-providers: 
   private_domain: { <<: *domain, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs" }  
-  mdirect: { <<:  *domain, url: "https://ghfast.top/raw.githubusercontent.com/sztuxp/rules/main/config/Clash/mdirect.mrs" }  
+  mdirect: { <<:  *qdomain, url: "https://ghfast.top/raw.githubusercontent.com/sztuxp/rules/main/config/Clash/mdirect.mrs" }  
+  mproxy: { <<:  *qdomain, url: "https://ghfast.top/raw.githubusercontent.com/sztuxp/rules/main/config/Clash/mproxy.mrs" }
   googlestore_domain: { <<: *domain, url: "https://ghfast.top/raw.githubusercontent.com/sztuxp/rules/main/config/Clash/googlestore.mrs" }
   connectivity-check: { <<: *domain, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/connectivity-check.mrs" }
   #秋风去广告

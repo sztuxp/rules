@@ -188,6 +188,7 @@ rules:
   - DOMAIN-SUFFIX, ttvb.eu.org,🎦 TvProxy
   - DOMAIN-SUFFIX, 946985.qzz.io,🎦 TvProxy
   - DOMAIN-SUFFIX, 946985.eu.org,🎦 TvProxy
+  - DOMAIN-SUFFIX,filegear-sg.me,🎦 TvProxy
   
   - RULE-SET,private_domain,🟢 直连  
   - RULE-SET,mdirect,🟢 直连

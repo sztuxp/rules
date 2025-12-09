@@ -18,9 +18,7 @@ proxy-providers:
       #url: https://www.gstatic.com/generate_204
       interval: 300
     proxy: 🟢 直连
-    url: https://xxxx.com
-
- 
+    url: https://xxxx.com  
 # 用于下载订阅时指定UA
 global-ua:
     
@@ -55,7 +53,6 @@ external-controller: 0.0.0.0:9090
 secret: "123123"
 external-ui: ui
 external-ui-url: "https://ghfast.top/https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip"
-# 下载面板地址可更换：https://mirror.ghproxy.com/https://github.com/MetaCubeX/Yacd-meta/archive/gh-pages.zip
 
 # 匹配进程 always/strict/off
 find-process-mode: off
@@ -163,7 +160,6 @@ proxy-groups:
   #- {name: 🤖 Ai_!cn, <<: *all0}
   - {name: 🕺 PrProxy, <<: *all0}
   - {name: ✈️ Speedtest, <<: *all0}
-  - {name: 🎦 TvProxy, type: select, proxies: [🔯 节点故转,🚁 节点手动, ♻️ 节点自动,🕺 PrProxy,🇬 谷歌服务]}
   - {name: 🌈 海外网站, type: select, proxies: [🔯 节点故转,🚁 节点手动, ♻️ 节点自动,🕺 PrProxy,🇬 谷歌服务]}    
   - {name: 🚁 节点手动, <<: *all0}
   
@@ -183,15 +179,10 @@ rules:
   - AND,((AND,(DST-PORT,443),(NETWORK,UDP))),REJECT  
   - DOMAIN-SUFFIX,googleapis.cn,🟢 直连
   - DOMAIN-SUFFIX,xn--ngstr-lra8j.com,🟢 直连
-  #IPTV
-  - DOMAIN-SUFFIX, iill.top,🎦 TvProxy
-  - DOMAIN-SUFFIX, ttvb.eu.org,🎦 TvProxy
-  - DOMAIN-SUFFIX, 946985.qzz.io,🎦 TvProxy
-  - DOMAIN-SUFFIX, 946985.eu.org,🎦 TvProxy
-  - DOMAIN-SUFFIX,filegear-sg.me,🎦 TvProxy
+  - RULE-SET,mdirect,🟢 直连
+  - RULE-SET,mproxy,🕺 PrProxy
   
   - RULE-SET,private_domain,🟢 直连  
-  - RULE-SET,mdirect,🟢 直连
   - RULE-SET,connectivity-check,🟢 直连
 
   - RULE-SET,youtube_domain,📹 YouTube
@@ -214,12 +205,13 @@ rules:
 rule-anchor:
   ip: &ip {type: http, interval: 86400, behavior: ipcidr, format: mrs}
   domain: &domain {type: http, interval: 86400, behavior: domain, format: mrs}
-  adsdomain: &domain {type: http, interval: 7200, behavior: domain, format: mrs}
+  qdomain: &qdomain {type: http, interval: 3600, behavior: domain, format: mrs}
   zdy: &zdy {type: http, interval: 86400, behavior: domain, format: text}
   class: &class {type: http, interval: 86400, behavior: classical, format: text}
 rule-providers: 
   private_domain: { <<: *domain, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs" }  
-  mdirect: { <<:  *domain, url: "https://ghfast.top/raw.githubusercontent.com/sztuxp/rules/main/config/Clash/mdirect.mrs" }  
+  mdirect: { <<:  *qdomain, url: "https://ghfast.top/raw.githubusercontent.com/sztuxp/rules/main/config/Clash/mdirect.mrs" }  
+  mproxy: { <<:  *qdomain, url: "https://ghfast.top/raw.githubusercontent.com/sztuxp/rules/main/config/Clash/mproxy.mrs" }
   googlestore_domain: { <<: *domain, url: "https://ghfast.top/raw.githubusercontent.com/sztuxp/rules/main/config/Clash/googlestore.mrs" }
   connectivity-check: { <<: *domain, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/connectivity-check.mrs" }
   #秋风去广告

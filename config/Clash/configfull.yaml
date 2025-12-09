@@ -204,10 +204,9 @@ rules:
   #mr#- DOMAIN-SUFFIX, 946985.qzz.io,🎦 TvProxy
   #mr#- DOMAIN-SUFFIX, 946985.eu.org,🎦 TvProxy
   #mr#- DOMAIN-SUFFIX, vvvv.ee,🎦 TvProxy
+  #mr#- DOMAIN-SUFFIX,filegear-sg.me,🎦 TvProxy
   #mr#- DOMAIN-SUFFIX,130519.xyz,🟢 直连
-  #mr#- DOMAIN-SUFFIX,4666888.xyz,🟢 直连
-  #mr#- DOMAIN-SUFFIX,946985.filegear-sg.me,🟢 直连
-  #mr#- DOMAIN-KEYWORD,946985,🟢 直连
+  #mr#- DOMAIN-SUFFIX,4666888.xyz,🟢 直连 
   #mr#- DOMAIN-SUFFIX,3116598.xyz,🟢 直连
   #mr#- DOMAIN-SUFFIX,188766.xyz,🟢 直连
   #mr#- DOMAIN-SUFFIX,3a.ink,🟢 直连

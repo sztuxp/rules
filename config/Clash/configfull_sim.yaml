@@ -52,7 +52,7 @@ geox-url:
 external-controller: 0.0.0.0:9090
 secret: "123123"
 external-ui: ui
-external-ui-url: "https://ghfast.top/https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip"
+external-ui-url: "https://ghfast.top/https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip"
 
 # 匹配进程 always/strict/off
 find-process-mode: off
@@ -158,9 +158,9 @@ proxy-groups:
   - {name: 📹 YouTube, type: select, proxies: [🔯 节点故转, 🚁 节点手动, ♻️ 节点自动,🔮 节点均衡]}
   - {name: 🇬 谷歌服务, <<: *all0}
   #- {name: 🤖 Ai_!cn, <<: *all0}
-  - {name: 🕺 PrProxy, type: select, proxies: [🔯 节点故转,🚁 节点手动, ♻️ 节点自动,🇬 谷歌服务]}
+  - {name: 🕺 TvProxy, type: select, proxies: [🔯 节点故转, 🚁 节点手动, ♻️ 节点自动,🇬 谷歌服务]}
   - {name: ✈️ Speedtest, <<: *all0}
-  - {name: 🌈 海外网站, type: select, proxies: [🔯 节点故转,🚁 节点手动, ♻️ 节点自动,🕺 PrProxy,🇬 谷歌服务]}    
+  - {name: 🌈 PrProxy, type: select, proxies: [🔯 节点故转, 🚁 节点手动, ♻️ 节点自动,🇬 谷歌服务]}    
   - {name: 🚁 节点手动, <<: *all0}
   
   - {name: 🎯 全球直连, <<: *all1}
@@ -180,7 +180,7 @@ rules:
   - DOMAIN-SUFFIX,googleapis.cn,🟢 直连
   - DOMAIN-SUFFIX,xn--ngstr-lra8j.com,🟢 直连
   - RULE-SET,mdirect,🟢 直连
-  - RULE-SET,mproxy,🕺 PrProxy
+  - RULE-SET,tvproxy,🕺 TvProxy
   
   - RULE-SET,private_domain,🟢 直连  
   - RULE-SET,connectivity-check,🟢 直连
@@ -188,15 +188,14 @@ rules:
   - RULE-SET,youtube_domain,📹 YouTube
   - RULE-SET,ai,🇬 谷歌服务
   - RULE-SET,google_domain,🇬 谷歌服务
-  - RULE-SET,geolocation-!cn,🕺 PrProxy
+  - RULE-SET,geolocation-!cn,🌈 PrProxy
 
-  - RULE-SET,cn_domain,🎯 全球直连  
+  - RULE-SET,cn_domain,🎯 全球直连    
+  #IP匹配  
   - RULE-SET,cloudflare_ip,🎯 全球直连,no-resolve
-  #IP匹配
-  
   - RULE-SET,google_ip,🇬 谷歌服务,no-resolve
-  - RULE-SET,twitter_ip,🕺 PrProxy,no-resolve
-  - RULE-SET,telegram_ip,🕺 PrProxy,no-resolve
+  - RULE-SET,twitter_ip,🌈 PrProxy,no-resolve
+  - RULE-SET,telegram_ip,🌈 PrProxy,no-resolve
   - RULE-SET,private_ip,🎯 全球直连,no-resolve
   - RULE-SET,cloudflare_ip,🎯 全球直连,no-resolve
   - RULE-SET,cn_ip,🎯 全球直连
@@ -211,7 +210,7 @@ rule-anchor:
 rule-providers: 
   private_domain: { <<: *domain, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs" }  
   mdirect: { <<:  *qdomain, url: "https://ghfast.top/raw.githubusercontent.com/sztuxp/rules/main/config/Clash/mdirect.mrs" }  
-  mproxy: { <<:  *qdomain, url: "https://ghfast.top/raw.githubusercontent.com/sztuxp/rules/main/config/Clash/mproxy.mrs" }
+  tvproxy: { <<:  *qdomain, url: "https://ghfast.top/raw.githubusercontent.com/sztuxp/rules/main/config/Clash/tvproxy.mrs" }
   googlestore_domain: { <<: *domain, url: "https://ghfast.top/raw.githubusercontent.com/sztuxp/rules/main/config/Clash/googlestore.mrs" }
   connectivity-check: { <<: *domain, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/connectivity-check.mrs" }
   #秋风去广告

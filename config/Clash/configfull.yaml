@@ -166,14 +166,14 @@ proxy-groups:
   - {name: 🎵 TikTok, <<: *zj}
   - {name: 📲 Telegram, <<: *zj}
   - {name: 🧋 Twitter, <<: *zj}
-  - {name: 🕺 PrProxy, <<: *zj}
+  - {name: 🕺 TvProxy, <<: *zj}
   - {name: ✈️ Speedtest, <<: *zj}
   - {name: 🎥 NETFLIX, <<: *zj}  
   - {name: 💶 PayPal, <<: *zj}
-  - {name: 🌈 海外网站, <<: *zj}    
+  - {name: 🌈 PrProxy, <<: *zj}    
   
   - {name: 🎯 全球直连, type: select, proxies: [🟢 直连, 🚀 节点选择]}
-  - {name: 🐟 漏网之鱼, type: select, proxies: [🚀 节点选择, 🚁 自建节点, ♻️ 美国自动, 🇬 谷歌服务,🥥 亚太节点, 🟢 直连]}  
+  - {name: 🐟 漏网之鱼, type: select, proxies: [🚀 节点选择, 🚁 自建节点, ♻️ 美国自动, 🔯 美国故转,🇬 谷歌服务,🥥 亚太节点, 🟢 直连]}  
   - {name: 🚁 自建节点, type: select, <<: *filterZJ}  
   - {name: 🥥 亚太节点, type: select, <<: *filterAs}
   - {name: 🇺🇲 美国节点, type: select, <<: *filterUs} 
@@ -191,7 +191,7 @@ rules:
   - DOMAIN-SUFFIX,googleapis.cn,🟢 直连
   - DOMAIN-SUFFIX,xn--ngstr-lra8j.com,🟢 直连  
   - RULE-SET,mdirect,🟢 直连
-  - RULE-SET,mproxy,🕺 PrProxy
+  - RULE-SET,tvproxy,🕺 TvProxy
   #mobi  
   #mm#- PROCESS-NAME,app.revanced.android.gms,📹 YouTube
   #mm#- PROCESS-NAME,app.rvx.android.youtube,📹 YouTube
@@ -200,14 +200,14 @@ rules:
   #mm#- PROCESS-NAME-REGEX,(?i)Telegram,📲 Telegram
   #mm#- PROCESS-NAME-REGEX,(?i)microsoft,🪟 Microsoft    
   #pc，router
-  #pr#- DOMAIN-KEYWORD, kxxx1,🕺 PrProxy
-  #pr#- DOMAIN-KEYWORD, kxxx2,🕺 PrProxy
-  #pr#- DOMAIN-KEYWORD, kxxx3,🕺 PrProxy
-  #pr#- DOMAIN-KEYWORD, kxxx4,🕺 PrProxy
-  #pr#- DOMAIN-KEYWORD, kxxx5,🕺 PrProxy
-  #pr#- DOMAIN-KEYWORD, kxxx6,🕺 PrProxy
-  #pr#- DOMAIN-KEYWORD, kxxx7,🕺 PrProxy
-  #pr#- DST-PORT,kxxx8,🕺 PrProxy
+  #pr#- DOMAIN-KEYWORD, kxxx1,🌈 PrProxy
+  #pr#- DOMAIN-KEYWORD, kxxx2,🌈 PrProxy
+  #pr#- DOMAIN-KEYWORD, kxxx3,🌈 PrProxy
+  #pr#- DOMAIN-KEYWORD, kxxx4,🌈 PrProxy
+  #pr#- DOMAIN-KEYWORD, kxxx5,🌈 PrProxy
+  #pr#- DOMAIN-KEYWORD, kxxx6,🌈 PrProxy
+  #pr#- DOMAIN-KEYWORD, kxxx7,🌈 PrProxy
+  #pr#- DST-PORT,kxxx8,🌈 PrProxy
 
   #广告
   #- RULE-SET,ads_domain,REJECT
@@ -234,7 +234,7 @@ rules:
   - RULE-SET,telegram_domain,📲 Telegram
   - RULE-SET,netflix_domain,🎥 NETFLIX
   - RULE-SET,paypal_domain,💶 PayPal
-  - RULE-SET,geolocation-!cn,🌈 海外网站
+  - RULE-SET,geolocation-!cn,🌈 PrProxy
   - RULE-SET,cn_domain,🎯 全球直连  
     
   #IP匹配
@@ -256,7 +256,7 @@ rule-anchor:
 rule-providers: 
   private_domain: { <<: *domain, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs" }  
   mdirect: { <<:  *qdomain, url: "https://ghfast.top/raw.githubusercontent.com/sztuxp/rules/main/config/Clash/mdirect.mrs" }  
-  mproxy: { <<:  *qdomain, url: "https://ghfast.top/raw.githubusercontent.com/sztuxp/rules/main/config/Clash/mproxy.mrs" }
+  tvproxy: { <<:  *qdomain, url: "https://ghfast.top/raw.githubusercontent.com/sztuxp/rules/main/config/Clash/tvproxy.mrs" }
   googlestore_domain: { <<: *domain, url: "https://ghfast.top/raw.githubusercontent.com/sztuxp/rules/main/config/Clash/googlestore.mrs" }
   connectivity-check: { <<: *domain, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/connectivity-check.mrs" }
   #秋风去广告

@@ -53,7 +53,7 @@ geox-url:
 external-controller: 0.0.0.0:9090
 secret: "123123"
 external-ui: ui
-external-ui-url: "https://ghfast.top/https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip"
+external-ui-url: "https://ghfast.top/https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip"
 
 # 匹配进程 always/strict/off
 find-process-mode: off

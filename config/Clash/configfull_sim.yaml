@@ -181,6 +181,7 @@ rules:
   - DOMAIN-SUFFIX,xn--ngstr-lra8j.com,🟢 直连
   - RULE-SET,mdirect,🟢 直连
   - RULE-SET,tvproxy,🕺 TvProxy
+  - RULE-SET,apple_domain,🟢 直连
   
   - RULE-SET,private_domain,🟢 直连  
   - RULE-SET,connectivity-check,🟢 直连

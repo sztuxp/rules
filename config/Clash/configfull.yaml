@@ -162,7 +162,7 @@ proxy-groups:
   - {name: 🤖 Ai_!cn, <<: *zj}
   - {name: 👨🏿‍💻 GitHub, <<: *zj}
   - {name: 🪟 Microsoft, <<: *zj}
-  - {name: 🍎 Apple, <<: *zj}
+  - {name: 🍎 Apple,  type: select, proxies: [🚀 节点选择, 🚁 自建节点, ♻️ 美国自动, 🔯 美国故转,🇬 谷歌服务,🥥 亚太节点, 🟢 直连]}
   - {name: 🎵 TikTok, <<: *zj}
   - {name: 📲 Telegram, <<: *zj}
   - {name: 🧋 Twitter, <<: *zj}

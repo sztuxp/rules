@@ -1,7 +1,7 @@
 # 锚点
 yt: &yt {type: select, proxies: [🔮 节点均衡,🚁 油管节点, 🔯 节点故转, ♻️ 节点自动, 🧚手动节点]}
 zj: &zj {type: select, include-all: true, filter: "(?i)(xxxx1)"}
-zj1: &zj1 {include-all: true, filter: "(?i)(xxxx4)"}
+zj1: &zj1 {type: select, include-all: true, filter: "(?i)(xxxx4)"}
 
 filterUs: &filterUs {include-all: true, filter: "(?i)(xxxx2)"}
 filterZJ: &filterZJ {include-all: true, filter: "^(?i)(xxxx3)"}

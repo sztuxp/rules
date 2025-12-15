@@ -159,6 +159,8 @@ proxy-groups:
   - {name: 🇬 谷歌服务, <<: *all0}
   #- {name: 🤖 Ai_!cn, <<: *all0}
   - {name: 🕺 TvProxy, type: select, proxies: [🔯 节点故转, 🚁 节点手动, ♻️ 节点自动,🇬 谷歌服务]}
+  - {name: 🪟 Microsoft, <<: *all1}
+  - {name: 🍎 Apple, <<: *all1}
   - {name: ✈️ Speedtest, <<: *all0}
   - {name: 🌈 PrProxy, type: select, proxies: [🔯 节点故转, 🚁 节点手动, ♻️ 节点自动,🇬 谷歌服务]}    
   - {name: 🚁 节点手动, <<: *all0}
@@ -181,7 +183,6 @@ rules:
   - DOMAIN-SUFFIX,xn--ngstr-lra8j.com,🟢 直连
   - RULE-SET,mdirect,🟢 直连
   - RULE-SET,tvproxy,🕺 TvProxy
-  - RULE-SET,apple_domain,🟢 直连
   
   - RULE-SET,private_domain,🟢 直连  
   - RULE-SET,connectivity-check,🟢 直连
@@ -189,12 +190,20 @@ rules:
   - RULE-SET,youtube_domain,📹 YouTube
   - RULE-SET,ai,🇬 谷歌服务
   - RULE-SET,google_domain,🇬 谷歌服务
+  - DOMAIN,www.microsoft.com,🟢 直连  
+  - RULE-SET,onedrive_domain,🪟 Microsoft 
+  - RULE-SET,microsoft_domain,🪟 Microsoft
+  - RULE-SET,microsoftcn_domain,🟢 直连
+  - DOMAIN,www.apple.com,🟢 直连 
+  - RULE-SET,apple_domain,🍎 Apple
+  - RULE-SET,applecn_domain,🟢 直连
   - RULE-SET,geolocation-!cn,🌈 PrProxy
 
   - RULE-SET,cn_domain,🎯 全球直连    
   #IP匹配  
   - RULE-SET,cloudflare_ip,🎯 全球直连,no-resolve
   - RULE-SET,google_ip,🇬 谷歌服务,no-resolve
+  - RULE-SET,apple_ip,🍎 Apple,no-resolve
   - RULE-SET,twitter_ip,🌈 PrProxy,no-resolve
   - RULE-SET,telegram_ip,🌈 PrProxy,no-resolve
   - RULE-SET,private_ip,🎯 全球直连,no-resolve

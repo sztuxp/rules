@@ -1,11 +1,5 @@
 # 锚点
 yt: &yt {type: select, proxies: [🔮 节点均衡,🚁 油管节点, 🔯 节点故转, ♻️ 节点自动, 🧚手动节点]}
-zj: &zj {type: select, include-all: true, filter: "(?i)(xxxx1)"}
-zj1: &zj1 {type: select, include-all: true, filter: "(?i)(xxxx4)"}
-
-filterUs: &filterUs {include-all: true, filter: "(?i)(xxxx2)"}
-filterZJ: &filterZJ {include-all: true, filter: "^(?i)(xxxx3)"}
-
 
 # 订阅，名称不能重复
 proxy-providers:
@@ -172,7 +166,7 @@ proxy-groups:
   - {name: ✈️ Speedtest, <<: *zj}
   - {name: 🎥 NETFLIX, <<: *zj}  
   - {name: 💶 PayPal, <<: *zj}
-  - {name: 🌈 PrProxy, type: select, proxies: [🚀 节点选择, 🚁 自建节点, ♻️ 节点自动, 🔯 节点故转,🧚手动节点,🇬 谷歌服务]}    
+  - {name: 🌈 PrProxy, type: select, proxies: [🚀 节点选择, 🚁 自建节点, ♻️ 节点自动, 🔯 节点故转,🧚手动节点,🇬 谷歌服务]}     
   
   - {name: 🎯 全球直连, type: select, proxies: [🟢 直连, 🚀 节点选择]}
   - {name: 🐟 漏网之鱼, type: select, proxies: [🚀 节点选择, 🚁 自建节点, ♻️ 节点自动, 🔯 节点故转,🇬 谷歌服务, 🟢 直连]}  
@@ -192,23 +186,12 @@ rules:
   - DOMAIN-SUFFIX,googleapis.cn,🟢 直连
   - DOMAIN-SUFFIX,xn--ngstr-lra8j.com,🟢 直连  
   - RULE-SET,mdirect,🟢 直连
+  #IPTV
   - RULE-SET,tvproxy,🕺 TvProxy
-  #mobi  
-  #mm#- PROCESS-NAME,app.revanced.android.gms,📹 YouTube
-  #mm#- PROCESS-NAME,app.rvx.android.youtube,📹 YouTube
-  #mm#- PROCESS-NAME-REGEX,(?i)google,🇬 谷歌服务 
-  #mm#- PROCESS-NAME-REGEX,.*downloads,🇬 谷歌服务
-  #mm#- PROCESS-NAME-REGEX,(?i)Telegram,📲 Telegram
-  #mm#- PROCESS-NAME-REGEX,(?i)microsoft,🪟 Microsoft    
+
+  #手机进程   
+ 
   #pc，router
-  #pr#- DOMAIN-KEYWORD, kxxx1,🌈 PrProxy
-  #pr#- DOMAIN-KEYWORD, kxxx2,🌈 PrProxy
-  #pr#- DOMAIN-KEYWORD, kxxx3,🌈 PrProxy
-  #pr#- DOMAIN-KEYWORD, kxxx4,🌈 PrProxy
-  #pr#- DOMAIN-KEYWORD, kxxx5,🌈 PrProxy
-  #pr#- DOMAIN-KEYWORD, kxxx6,🌈 PrProxy
-  #pr#- DOMAIN-KEYWORD, kxxx7,🌈 PrProxy
-  #pr#- DST-PORT,kxxx8,🌈 PrProxy
 
   #广告
   #- RULE-SET,ads_domain,REJECT

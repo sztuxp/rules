@@ -184,6 +184,7 @@ rules:
   #禁用所有UDP流量
   - AND,((AND,(DST-PORT,443),(NETWORK,UDP))),REJECT
   - DOMAIN-SUFFIX,googleapis.cn,🟢 直连
+  - DOMAIN-SUFFIX,gstatic.com,🟢 直连
   - DOMAIN-SUFFIX,xn--ngstr-lra8j.com,🟢 直连  
   - RULE-SET,mdirect,🟢 直连
   #IPTV

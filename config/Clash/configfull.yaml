@@ -186,14 +186,12 @@ rules:
   - DOMAIN-SUFFIX,googleapis.cn,🟢 直连
   - DOMAIN-SUFFIX,gstatic.com,🟢 直连
   - DOMAIN-SUFFIX,xn--ngstr-lra8j.com,🟢 直连  
+  #pc，router  
   - RULE-SET,mdirect,🟢 直连
   #IPTV
   - RULE-SET,tvproxy,🕺 TvProxy
-
   #手机进程   
  
-  #pc，router
-
   #广告
   #- RULE-SET,ads_domain,REJECT
   

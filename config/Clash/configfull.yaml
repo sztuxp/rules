@@ -185,7 +185,8 @@ rules:
   - AND,((AND,(DST-PORT,443),(NETWORK,UDP))),REJECT
   - DOMAIN-SUFFIX,googleapis.cn,🟢 直连
   - DOMAIN-SUFFIX,gstatic.com,🟢 直连
-  - DOMAIN-SUFFIX,xn--ngstr-lra8j.com,🟢 直连  
+  - DOMAIN-SUFFIX,xn--ngstr-lra8j.com,🟢 直连
+  - GEOSITE,GOOGLE-PLAY@CN,🟢 直连
   #pc，router  
   - RULE-SET,mdirect,🟢 直连
   #IPTV

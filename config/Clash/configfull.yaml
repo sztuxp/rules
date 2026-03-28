@@ -183,10 +183,18 @@ rules:
   #- AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((RULE-SET,cn_domain))),REJECT  
   #禁用所有UDP流量
   - AND,((AND,(DST-PORT,443),(NETWORK,UDP))),REJECT
-  - DOMAIN-SUFFIX,googleapis.cn,🟢 直连
-  - DOMAIN-SUFFIX,gstatic.com,🟢 直连
-  - DOMAIN-SUFFIX,xn--ngstr-lra8j.com,🟢 直连
-  - GEOSITE,GOOGLE-PLAY@CN,🟢 直连
+  #谷歌商店分流 https://github.com/v2fly/domain-list-community/blob/master/data/google-play
+  - DOMAIN-SUFFIX,services.googleapis.cn,🟢 直连
+  - DOMAIN-REGEX,^r+[0-9]+(---|\.)sn-(2x3|ni5|j5o)\w{5}\.xn--ngstr-lra8j\.com$,🟢 直连
+  - DOMAIN-REGEX,^r+[0-9]+(---|\.)sn-(2x3|ni5|j5o)\w{5}\.googlevideo\.com,🟢 直连
+  - DOMAIN,redirector.c.play.google.com,🟢 直连
+  - DOMAIN-SUFFIX,googleplay.com,🇬 谷歌服务
+  - DOMAIN-SUFFIX,play-fe.googleapis.com,🇬 谷歌服务
+  - DOMAIN-SUFFIX,play-games.googleusercontent.com,🇬 谷歌服务
+  - DOMAIN-SUFFIX,play-lh.googleusercontent.com,🇬 谷歌服务
+  - DOMAIN-SUFFIX,play.google.com,🇬 谷歌服务
+  - DOMAIN-SUFFIX,play.googleapis.com,🇬 谷歌服务
+
   #pc，router  
   - RULE-SET,mdirect,🟢 直连
   #IPTV

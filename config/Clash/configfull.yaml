@@ -222,7 +222,6 @@ rules:
   - RULE-SET,onedrive_domain,🪟 Microsoft 
   - RULE-SET,microsoft_domain,🪟 Microsoft
   
-  #- DOMAIN,www.apple.com,🟢 直连 
   - RULE-SET,applecn_domain,🍎 CN苹果
   - RULE-SET,apple_domain,🍎 Apple  
   - RULE-SET,tiktok_domain,🎵 TikTok
@@ -231,6 +230,7 @@ rules:
   - RULE-SET,telegram_domain,📲 Telegram
   - RULE-SET,netflix_domain,🎥 NETFLIX
   - RULE-SET,paypal_domain,💶 PayPal
+  - RULE-SET,cloudflare_domain,🌈 PrProxy
   - RULE-SET,geolocation-!cn,🌈 PrProxy
   - RULE-SET,cn_domain,🎯 全球直连  
     
@@ -261,6 +261,7 @@ rule-providers:
   ai: { <<: *domain, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ai-chat-!cn.mrs" }  
   youtube_domain: { <<: *domain, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs" }
   google_domain: { <<: *domain, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.mrs" }
+  cloudflare_domain: { <<: *domain, url: "https://gh.618222.xyz/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cloudflare.mrs" }
   github_domain: { <<: *domain, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs" }
   twitter_domain: { <<: *domain, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/twitter.mrs" }
   telegram_domain: { <<: *domain, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.mrs" }

@@ -196,6 +196,8 @@ rules:
   - DOMAIN-SUFFIX,play-lh.googleusercontent.com,🇬 谷歌服务
   - DOMAIN-SUFFIX,play.google.com,🇬 谷歌服务
   - DOMAIN-SUFFIX,play.googleapis.com,🇬 谷歌服务
+  - DOMAIN-SUFFIX,gstatic.com,🇬 谷歌服务
+  - DOMAIN-SUFFIX,googleapis.com,🇬 谷歌服务
 
   #pc，router  
   - RULE-SET,mdirect,🟢 直连

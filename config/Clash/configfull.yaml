@@ -213,8 +213,8 @@ rules:
   #google store
   - RULE-SET,googlestore_domain,🇬 谷歌服务
   - RULE-SET,google_domain,🇬 谷歌服务
-  - DOMAIN,www.microsoft.com,🟢 直连  
-  - RULE-SET,onedrive_domain,🌈 PrProxy 
+  #- DOMAIN,www.microsoft.com,🟢 直连  
+  - RULE-SET,onedrive_domain,🪟 Microsoft 
   - RULE-SET,microsoft_domain,🪟 Microsoft
   - RULE-SET,microsoftcn_domain,🟢 直连
   - DOMAIN,www.apple.com,🟢 直连 

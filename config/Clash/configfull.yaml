@@ -169,6 +169,8 @@ proxy-groups:
   - {name: 🌈 PrProxy, type: select, proxies: [🚀 节点选择, 🚁 自建节点, ♻️ 节点自动, 🔯 节点故转,🧚手动节点,🇬 谷歌服务]}     
   
   - {name: 🎯 全球直连, type: select, proxies: [🟢 直连, 🚀 节点选择]}
+  - {name: 🪟 CN微软, type: select, proxies: [🟢 直连, 🪟 Microsoft]}
+  - {name: 🍎 CN苹果, type: select, proxies: [🟢 直连, 🍎 Apple]}
   - {name: 🐟 漏网之鱼, type: select, proxies: [🚀 节点选择, 🚁 自建节点, ♻️ 节点自动, 🔯 节点故转,🇬 谷歌服务, 🟢 直连]}  
   - {name: 🚁 自建节点, type: select, <<: *filterZJ}    
   - {name: 🧚手动节点, type: select, <<: *filterUs} 
@@ -214,12 +216,13 @@ rules:
   - RULE-SET,googlestore_domain,🇬 谷歌服务
   - RULE-SET,google_domain,🇬 谷歌服务
   #- DOMAIN,www.microsoft.com,🟢 直连  
+  - RULE-SET,microsoftcn_domain,🪟 CN微软
   - RULE-SET,onedrive_domain,🪟 Microsoft 
   - RULE-SET,microsoft_domain,🪟 Microsoft
-  - RULE-SET,microsoftcn_domain,🟢 直连
-  - DOMAIN,www.apple.com,🟢 直连 
-  - RULE-SET,apple_domain,🍎 Apple
-  - RULE-SET,applecn_domain,🟢 直连
+  
+  #- DOMAIN,www.apple.com,🟢 直连 
+  - RULE-SET,applecn_domain,🍎 CN苹果
+  - RULE-SET,apple_domain,🍎 Apple  
   - RULE-SET,tiktok_domain,🎵 TikTok
   - RULE-SET,speedtest_domain,✈️ Speedtest
   - RULE-SET,twitter_domain,🧋 Twitter

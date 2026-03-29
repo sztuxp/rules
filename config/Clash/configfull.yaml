@@ -186,18 +186,18 @@ rules:
   #禁用所有UDP流量
   - AND,((AND,(DST-PORT,443),(NETWORK,UDP))),REJECT
   #谷歌商店分流 https://github.com/v2fly/domain-list-community/blob/master/data/google-play
-  - DOMAIN-SUFFIX,services.googleapis.cn,🇬 谷歌服务
-  - DOMAIN-REGEX,^r+[0-9]+(---|\.)sn-(2x3|ni5|j5o)\w{5}\.xn--ngstr-lra8j\.com$,🇬 谷歌服务
-  - DOMAIN-REGEX,^r+[0-9]+(---|\.)sn-(2x3|ni5|j5o)\w{5}\.googlevideo\.com,🇬 谷歌服务
-  - DOMAIN,redirector.c.play.google.com,🇬 谷歌服务
-  - DOMAIN-SUFFIX,googleplay.com,🇬 谷歌服务
-  - DOMAIN-SUFFIX,play-fe.googleapis.com,🇬 谷歌服务
-  - DOMAIN-SUFFIX,play-games.googleusercontent.com,🇬 谷歌服务
-  - DOMAIN-SUFFIX,play-lh.googleusercontent.com,🇬 谷歌服务
-  - DOMAIN-SUFFIX,play.google.com,🇬 谷歌服务
-  - DOMAIN-SUFFIX,play.googleapis.com,🇬 谷歌服务
-  - DOMAIN-SUFFIX,gstatic.com,🇬 谷歌服务
-  - DOMAIN-SUFFIX,googleapis.com,🇬 谷歌服务
+  #- DOMAIN-SUFFIX,services.googleapis.cn,🇬 谷歌服务
+  #- DOMAIN-REGEX,^r+[0-9]+(---|\.)sn-(2x3|ni5|j5o)\w{5}\.xn--ngstr-lra8j\.com$,🇬 谷歌服务
+  #- DOMAIN-REGEX,^r+[0-9]+(---|\.)sn-(2x3|ni5|j5o)\w{5}\.googlevideo\.com,🇬 谷歌服务
+  #- DOMAIN,redirector.c.play.google.com,🇬 谷歌服务
+  #- DOMAIN-SUFFIX,googleplay.com,🇬 谷歌服务
+  #- DOMAIN-SUFFIX,play-fe.googleapis.com,🇬 谷歌服务
+  #- DOMAIN-SUFFIX,play-games.googleusercontent.com,🇬 谷歌服务
+  #- DOMAIN-SUFFIX,play-lh.googleusercontent.com,🇬 谷歌服务
+  #- DOMAIN-SUFFIX,play.google.com,🇬 谷歌服务
+  #- DOMAIN-SUFFIX,play.googleapis.com,🇬 谷歌服务
+  #- DOMAIN-SUFFIX,gstatic.com,🇬 谷歌服务
+  #- DOMAIN-SUFFIX,googleapis.com,🇬 谷歌服务
 
   #pc，router  
   - RULE-SET,mdirect,🟢 直连
@@ -215,7 +215,7 @@ rules:
   - RULE-SET,github_domain,👨🏿‍💻 GitHub
   - RULE-SET,youtube_domain,📹 YouTube
   #google store
-  - RULE-SET,googlestore_domain,🇬 谷歌服务
+  #- RULE-SET,googlestore_domain,🇬 谷歌服务
   - RULE-SET,google_domain,🇬 谷歌服务
   #- DOMAIN,www.microsoft.com,🟢 直连  
   - RULE-SET,microsoftcn_domain,🪟 CN微软

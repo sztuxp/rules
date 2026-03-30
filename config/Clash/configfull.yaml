@@ -166,6 +166,7 @@ proxy-groups:
   - {name: ✈️ Speedtest, <<: *zj}
   - {name: 🎥 NETFLIX, <<: *zj}  
   - {name: 💶 PayPal, <<: *zj}
+  - {name: 📽️ cnblock, <<: *zj}
   - {name: 🌈 PrProxy, type: select, proxies: [🚀 节点选择, 🚁 自建节点, ♻️ 节点自动, 🔯 节点故转,🧚手动节点,🇬 谷歌服务]}     
   
   - {name: 🎯 全球直连, type: select, proxies: [🟢 直连, 🚀 节点选择]}
@@ -230,6 +231,7 @@ rules:
   - RULE-SET,telegram_domain,📲 Telegram
   - RULE-SET,netflix_domain,🎥 NETFLIX
   - RULE-SET,paypal_domain,💶 PayPal
+  - RULE-SET,cnblock_domain,📽️ cnblock
   - RULE-SET,cloudflare_domain,🌈 PrProxy
   - RULE-SET,geolocation-!cn,🌈 PrProxy
   - RULE-SET,cn_domain,🎯 全球直连  
@@ -251,6 +253,7 @@ rule-anchor:
   zdy: &zdy {type: http, interval: 86400, behavior: domain, format: text}
   class: &class {type: http, interval: 86400, behavior: classical, format: text}
 rule-providers: 
+  cnblock_domain: { <<:  *qdomain, url: "https://ghfast.top/raw.githubusercontent.com/sztuxp/rules/main/config/Clash/cnblock.mrs" }
   private_domain: { <<: *domain, url: "https://ghfast.top/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs" }  
   mdirect: { <<:  *qdomain, url: "https://ghfast.top/raw.githubusercontent.com/sztuxp/rules/main/config/Clash/mdirect.mrs" }  
   tvproxy: { <<:  *qdomain, url: "https://ghfast.top/raw.githubusercontent.com/sztuxp/rules/main/config/Clash/tvproxy.mrs" }

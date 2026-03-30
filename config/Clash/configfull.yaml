@@ -157,8 +157,8 @@ proxy-groups:
   - {name: 🇬 谷歌服务, <<: *zj}
   - {name: 🤖 Ai_!cn, <<: *zj}
   - {name: 👨🏿‍💻 GitHub, <<: *zj}
-  - {name: 🪟 Microsoft, <<: *zj1}
-  - {name: 🍎 Apple, <<: *zj1}
+  - {name: 🪟 Microsoft, <<: *zj}
+  - {name: 🍎 Apple, <<: *zj}
   - {name: 🎵 TikTok, <<: *zj}
   - {name: 📲 Telegram, <<: *zj}
   - {name: 🧋 Twitter, <<: *zj}

@@ -166,7 +166,7 @@ proxy-groups:
   - {name: ✈️ Speedtest, <<: *zj}
   - {name: 🎥 NETFLIX, <<: *zj}  
   - {name: 💶 PayPal, <<: *zj}
-  - {name: 📽️ cnblock, <<: *zj}
+  - {name: 📽️ cnblock, <<: *cnbl}
   - {name: 🌈 PrProxy, type: select, proxies: [🚀 节点选择, 🚁 自建节点, ♻️ 节点自动, 🔯 节点故转,🧚手动节点,🇬 谷歌服务]}     
   
   - {name: 🎯 全球直连, type: select, proxies: [🟢 直连, 🚀 节点选择]}

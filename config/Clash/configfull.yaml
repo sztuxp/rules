@@ -200,6 +200,8 @@ rules:
   #- DOMAIN-SUFFIX,gstatic.com,🇬 谷歌服务
   #- DOMAIN-SUFFIX,googleapis.com,🇬 谷歌服务
 
+  #Placeholder1
+  
   #pc，router  
   - RULE-SET,mdirect,🟢 直连
   #IPTV

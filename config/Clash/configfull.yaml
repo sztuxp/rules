@@ -1,5 +1,5 @@
 # 锚点
-yt: &yt {type: select, proxies: [🔮 节点均衡,🚁 油管节点, 🔯 节点故转, ♻️ 节点自动, 🧚手动节点]}
+yt: &yt {type: select, proxies: [🔮 节点均衡,🚁 油管节点, 🔯 节点故转, ♻️ 节点自动,🔮 CF点均衡,  ♻️ CF点自动,🧚手动节点]}
 
 # 订阅，名称不能重复
 proxy-providers:

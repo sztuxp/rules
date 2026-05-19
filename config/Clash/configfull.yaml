@@ -178,6 +178,8 @@ proxy-groups:
   - {name: 🔯 节点故转, type: fallback,tolerance: 20, interval: 300, <<: *filterUs}  
   - {name: ♻️ 节点自动, type: url-test,tolerance: 20, interval: 300, <<: *filterUs}     
   - {name: 🔮 节点均衡, type: load-balance, interval: 300, strategy: round-robin, <<: *filterUs}  
+  - {name: ♻️ CF点自动, type: url-test,tolerance: 20, interval: 300, <<: *filterCF}     
+  - {name: 🔮 CF点均衡, type: load-balance, interval: 300, strategy: round-robin, <<: *filterCF}  
   - {name: 🌐 全部节点, type: select, include-all: true}
 rules:
   # 若需禁用 QUIC 请取消注释 QUIC 两条规则

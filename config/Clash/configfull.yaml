@@ -1,5 +1,5 @@
 # 锚点
-yt: &yt {type: select, proxies: [🔮 节点均衡,🚁 油管节点, 🔯 节点故转, ♻️ 节点自动,🔮 CF点均衡,  ♻️ CF点自动,🧚手动节点]}
+yt: &yt {type: select, proxies: [🔮 CF点均衡, 🚁 油管节点, 🔯 节点故转, ♻️ 节点自动,🧚手动节点]}
 
 # 订阅，名称不能重复
 proxy-providers:
@@ -177,8 +177,8 @@ proxy-groups:
   - {name: 🧚手动节点, type: select, <<: *filterUs} 
   - {name: 🔯 节点故转, type: fallback,tolerance: 20, interval: 300, <<: *filterUs}  
   - {name: ♻️ 节点自动, type: url-test,tolerance: 20, interval: 300, <<: *filterUs}     
-  - {name: 🔮 节点均衡, type: load-balance, interval: 300, strategy: round-robin, <<: *filterUs}  
-  - {name: ♻️ CF点自动, type: url-test,tolerance: 20, interval: 300, <<: *filterCF}     
+  #- {name: 🔮 节点均衡, type: load-balance, interval: 300, strategy: round-robin, <<: *filterUs}  
+  #- {name: ♻️ CF点自动, type: url-test,tolerance: 20, interval: 300, <<: *filterCF}     
   - {name: 🔮 CF点均衡, type: load-balance, interval: 300, strategy: round-robin, <<: *filterCF}  
   - {name: 🌐 全部节点, type: select, include-all: true}
 rules:

@@ -129,7 +129,6 @@ dns:
   #指定域名查询的解析服务器，因为fallbake ip过滤域名缺省使用 nameserver 解析，所以对直连域名要指定国内DNS
   nameserver-policy:    
     "RULE-SET:cn_domain,private_domain,mdirect,connectivity-check":
-      - https://doh.pub/dns-query
       - https://dns.alidns.com/dns-query     
   #默认的域名解析服务器
   nameserver:
@@ -137,11 +136,9 @@ dns:
     - https://dns.google/dns-query    
   #代理节点域名解析服务器,开启遵循分流规则后，则必须加这一项
   proxy-server-nameserver:    
-    - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query   
   #直连的域名解析服务器
   direct-nameserver:
-    - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query     
 proxies:
 - name: "🟢 直连"

@@ -118,7 +118,7 @@ dns:
     - RULE-SET:private_domain    
     - RULE-SET:cn_domain
     - RULE-SET:connectivity-check
-    - ache.ott.fifalive.itv.cmvideo.cn
+    - cache.ott.fifalive.itv.cmvideo.cn
     #DDNS
     - RULE-SET:mdirect
     #GOOGLE TV 对时

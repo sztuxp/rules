@@ -61,8 +61,8 @@ keep-alive-interval: 30
 profile:
   store-selected: true
   store-fake-ip: true
-#hosts:
-  #base-v4v6-cm-miguvideo.e.cdn.chinamobile.com: studentlive.migucloud.com
+hosts:
+  base-v4v6-cm-miguvideo.e.cdn.chinamobile.com: cache.ott.fifalive.itv.cmvideo.cn
 
 # 流量嗅探，默认情况下，sniffer 只对无域名的 IP 请求进行嗅探；force-domain 和 skip-domain针对特殊场景
 sniffer:
@@ -118,6 +118,7 @@ dns:
     - RULE-SET:private_domain    
     - RULE-SET:cn_domain
     - RULE-SET:connectivity-check
+    - ache.ott.fifalive.itv.cmvideo.cn
     #DDNS
     - RULE-SET:mdirect
     #GOOGLE TV 对时
@@ -198,6 +199,7 @@ rules:
   - RULE-SET,mdirect,🟢 直连
   #IPTV
   - RULE-SET,tvproxy,🕺 TvProxy
+  - DOMAIN,cache.ott.fifalive.itv.cmvideo.cn,🟢 直连
   #手机进程   
  
   #广告

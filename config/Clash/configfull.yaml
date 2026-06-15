@@ -120,6 +120,7 @@ dns:
     - RULE-SET:cn_domain
     - RULE-SET:connectivity-check
     - cache.ott.fifalive.itv.cmvideo.cn
+    - base-v4v6-cm-miguvideo.e.cdn.chinamobile.com
     #DDNS
     - RULE-SET:mdirect
     #GOOGLE TV 对时
@@ -201,6 +202,7 @@ rules:
   #IPTV
   - RULE-SET,tvproxy,🕺 TvProxy
   - DOMAIN,cache.ott.fifalive.itv.cmvideo.cn,🟢 直连
+  - DOMAIN,base-v4v6-cm-miguvideo.e.cdn.chinamobile.com,🟢 直连
   #手机进程   
  
   #广告

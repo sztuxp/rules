@@ -63,7 +63,7 @@ profile:
   store-fake-ip: true
 hosts:
   base-v4v6-cm-miguvideo.e.cdn.chinamobile.com: cache.ott.fifalive.itv.cmvideo.cn
-  #cache.ott.fifalive.itv.cmvideo.cn:183.60.250.199
+  #cache.ott.fifalive.itv.cmvideo.cn: 183.60.250.199
 
 # 流量嗅探，默认情况下，sniffer 只对无域名的 IP 请求进行嗅探；force-domain 和 skip-domain针对特殊场景
 sniffer:

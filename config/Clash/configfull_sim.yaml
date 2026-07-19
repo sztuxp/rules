@@ -1,7 +1,7 @@
 # 锚点
 #全部代理节点
 all0: &all0 {type: select, include-all: true, filter: "^((?!(直连)).)*$"}
-fallbk: &fallbk {include-all: true, filter: "(?i)(cc|sj)"}
+fallbk: &fallbk {include-all: true, filter: "(?i)(CM|HH)"}
 #全部节点
 all1: &all1 {type: select, include-all: true}
 # 机场订阅，名称不能重复
@@ -154,19 +154,19 @@ proxies:
 # 🎃 🌈  🔴🕺🍿💸🎮 🇭🇰 🇯🇵 🔮 🚁 自建 🧚 🎥 🎦 🎬 🍎 📺 🎶 👨‍💻 📢 Ⓜ️ ✈️ 🛩️ 📽️ 🏗️ 
 # 策略组
 proxy-groups:
-  - {name: 🚀 节点选择, type: select, proxies: [🚁 节点手动, ♻️ 节点自动, 🔯 节点故转,🌐 全部节点]}  
-  - {name: 📹 YouTube, type: select, proxies: [🔯 节点故转, 🚁 节点手动, ♻️ 节点自动,🔮 节点均衡]}
+  - {name: 🚀 节点选择, type: select, proxies: [🔮 节点均衡,🔯 节点故转,🇬 谷歌服务, 🚁 节点手动, ♻️ 节点自动,🌐 全部节点]}  
+  - {name: 📹 YouTube, type: select, proxies: [🔮 节点均衡,🔯 节点故转,🇬 谷歌服务, 🚁 节点手动, ♻️ 节点自动]}
   - {name: 🇬 谷歌服务, <<: *all0}
   #- {name: 🤖 Ai_!cn, <<: *all0}
-  - {name: 🕺 TvProxy, type: select, proxies: [🔯 节点故转, 🚁 节点手动, ♻️ 节点自动,🇬 谷歌服务,🔮 节点均衡]}
+  - {name: 🕺 TvProxy, type: select, proxies: [🔮 节点均衡,🔯 节点故转,🇬 谷歌服务, 🚁 节点手动, ♻️ 节点自动]}
   - {name: 🪟 Microsoft, <<: *all1}
   - {name: 🍎 Apple, <<: *all1}
   - {name: ✈️ Speedtest, <<: *all0}
-  - {name: 🌈 PrProxy, type: select, proxies: [🔯 节点故转, 🚁 节点手动, ♻️ 节点自动,🇬 谷歌服务,🔮 节点均衡]}    
+  - {name: 🌈 PrProxy, type: select, proxies: [🔮 节点均衡,🔯 节点故转,🇬 谷歌服务, 🚁 节点手动, ♻️ 节点自动]}    
   - {name: 🚁 节点手动, <<: *all0}
   
   - {name: 🎯 全球直连, <<: *all1}
-  - {name: 🐟 漏网之鱼, type: select, proxies: [🚁 节点手动, ♻️ 节点自动,🔮 节点均衡, 🔯 节点故转, 🟢 直连]}  
+  - {name: 🐟 漏网之鱼, type: select, proxies: [🔮 节点均衡,🔯 节点故转,🇬 谷歌服务, 🚁 节点手动, ♻️ 节点自动, 🟢 直连]}  
 
   - {name: 🔯 节点故转, type: fallback,tolerance: 20, interval: 300, <<: *fallbk}  
   - {name: ♻️ 节点自动, type: url-test,tolerance: 20, interval: 300, <<: *fallbk}     
@@ -189,8 +189,8 @@ rules:
   - RULE-SET,connectivity-check,🟢 直连
 
   - RULE-SET,youtube_domain,📹 YouTube
-  - RULE-SET,ai,🇬 谷歌服务
-  - RULE-SET,google_domain,🇬 谷歌服务
+  - RULE-SET,ai,📹 YouTube
+  - RULE-SET,google_domain,📹 YouTube
   - DOMAIN,www.microsoft.com,🟢 直连  
   - RULE-SET,onedrive_domain,🪟 Microsoft 
   - RULE-SET,microsoft_domain,🪟 Microsoft

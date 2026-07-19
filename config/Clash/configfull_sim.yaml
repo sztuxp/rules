@@ -1,7 +1,7 @@
 # 锚点
 #全部代理节点
 all0: &all0 {type: select, include-all: true, filter: "^((?!(直连)).)*$"}
-#fallbk: &fallbk {include-all: true, filter: "(?i)(CM|HH)"}
+
 #全部节点
 all1: &all1 {type: select, include-all: true}
 # 机场订阅，名称不能重复

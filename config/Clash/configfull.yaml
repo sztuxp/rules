@@ -1,6 +1,7 @@
 # 锚点
-yt: &yt {type: select, proxies: [🚁 油管节点,🔮 CF点均衡,  🔯 节点故转, ♻️ 节点自动,🧚手动节点]}
-
+yt: &yt {type: select, proxies: [🚁 油管节点,🔮 CF均衡,  🔯 CF故转, ♻️ CF自动,🧚手动节点]}
+google1: &google1 {type: select, proxies: [🇬 谷歌节点,🔮 CF均衡,  🔯 CF故转, ♻️ CF自动]}
+ai1: &ai1 {type: select, proxies: [🤖 Ai_!cn节点,🔮 CF均衡,  🔯 CF故转, ♻️ CF自动]}
 # 订阅，名称不能重复
 proxy-providers:
   Airport_01:
@@ -157,8 +158,10 @@ proxy-groups:
   - {name: 🚀 节点选择, type: select, proxies: [♻️ 节点自动, 🚁 自建节点, 🧚手动节点, 🌐 全部节点]}
   - {name: 🚁 油管节点, <<: *zj}
   - {name: 📹 YouTube, <<: *yt}
-  - {name: 🇬 谷歌服务, <<: *zj}
-  - {name: 🤖 Ai_!cn, <<: *zj}
+  - {name: 🇬 谷歌节点, <<: *zj}
+  - {name: 🇬 谷歌服务, <<: *google1}  
+  - {name: 🤖 Ai_!cn节点, <<: *zj}
+  - {name: 🤖 Ai_!cn, <<: *ai1}
   - {name: 👨🏿‍💻 GitHub, <<: *zj}
   - {name: 🪟 Microsoft, <<: *zj}
   - {name: 🍎 Apple, <<: *zj}
@@ -178,11 +181,11 @@ proxy-groups:
   - {name: 🐟 漏网之鱼, type: select, proxies: [🚀 节点选择, 🚁 自建节点, ♻️ 节点自动, 🔯 节点故转,🇬 谷歌服务, 🟢 直连]}  
   - {name: 🚁 自建节点, type: select, <<: *filterZJ}    
   - {name: 🧚手动节点, type: select, <<: *filterUs} 
-  - {name: 🔯 节点故转, type: fallback,tolerance: 20, interval: 300, <<: *filterUs}  
-  - {name: ♻️ 节点自动, type: url-test,tolerance: 20, interval: 300, <<: *filterUs}     
+  - {name: 🔯 CF故转, type: fallback,tolerance: 20, interval: 300, <<: *filterCF}  
+  - {name: ♻️ CF自动, type: url-test,tolerance: 20, interval: 300, <<: *filterCF}     
   #- {name: 🔮 节点均衡, type: load-balance, interval: 300, strategy: round-robin, <<: *filterUs}  
-  #- {name: ♻️ CF点自动, type: url-test,tolerance: 20, interval: 300, <<: *filterCF}     
-  - {name: 🔮 CF点均衡, type: load-balance, interval: 300, strategy: round-robin, <<: *filterCF}  
+  #- {name: ♻️ CF自动, type: url-test,tolerance: 20, interval: 300, <<: *filterCF}     
+  - {name: 🔮 CF均衡, type: load-balance, interval: 300, strategy: round-robin, <<: *filterCF}  
   - {name: 🌐 全部节点, type: select, include-all: true}
 rules:
   # 若需禁用 QUIC 请取消注释 QUIC 两条规则

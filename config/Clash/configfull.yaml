@@ -182,7 +182,8 @@ proxy-groups:
   - {name: 🚁 自建节点, type: select, <<: *filterZJ}    
   - {name: 🧚手动节点, type: select, <<: *filterUs} 
   - {name: 🔯 CF故转, type: fallback,tolerance: 20, interval: 300, <<: *filterCF}  
-  - {name: ♻️ CF自动, type: url-test,tolerance: 20, interval: 300, <<: *filterCF}     
+  - {name: ♻️ CF自动, type: url-test,tolerance: 20, interval: 300, <<: *filterCF}
+  - {name: ♻️ 节点自动, type: url-test,tolerance: 20, interval: 300, <<: *filterUs} 
   #- {name: 🔮 节点均衡, type: load-balance, interval: 300, strategy: round-robin, <<: *filterUs}  
   #- {name: ♻️ CF自动, type: url-test,tolerance: 20, interval: 300, <<: *filterCF}     
   - {name: 🔮 CF均衡, type: load-balance, interval: 300, strategy: round-robin, <<: *filterCF}  
